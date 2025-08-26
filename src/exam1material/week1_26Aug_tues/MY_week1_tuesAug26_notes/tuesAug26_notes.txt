@@ -1,353 +1,363 @@
-CIS 301. Logical Foundations of Programming.
+        CIS 301. Logical Foundations of Programming.
 
-Julie Thornton.
+        Julie Thornton.
 
-What is this class?
-- logical reasoning (basics, puzzles)
-- writing formal statements (propositional and predicate logic)
-- proofs (why?)
-- reasoning about code
-    - analyzing what we know
-    - identifying equivalent programs
-    - simplifying programs
-    - formally describing what programs do
-- basics of proving correctness of programs (why?)
+        What is this class?
+        - logical reasoning (basics, puzzles)
+        - writing formal statements (propositional and predicate logic)
+        - proofs (why?)
+        - reasoning about code
+            - analyzing what we know
+            - identifying equivalent programs
+            - simplifying programs
+            - formally describing what programs do
+        - basics of proving correctness of programs (why?)
 
 
-Syllabus
+        Syllabus
 
-Canvas setup - weekly class material
+        Canvas setup - weekly class material
 
-Ed Discussion
+        Ed Discussion
 
-How to take notes
+        How to take notes
 
-Attendance/practice quizzes
+        Attendance/practice quizzes
 
 
-///////////////////////////////////////////////////////
+        ///////////////////////////////////////////////////////
 
-HW 0 - due Thursday, August 28
-    --> see how to do it
+        HW 0 - due Thursday, August 28
+            --> see how to do it
 
-HW 1 - due Tuesday, September 2
+        HW 1 - due Tuesday, September 2
 
-////////////////////////////////////////////////////////
+        ////////////////////////////////////////////////////////
 
-Taking a step back...what is logic?
+        Taking a step back...what is logic?
 
-- analysis of an argument according to a set of rules
-- given a set of premises (and sometimes a conclusion)
+        - analysis of an argument according to a set of rules
+        - given a set of premises (and sometimes a conclusion)
 
 
-- a VALID conclusion is one that is always true
-    anytime all the premises are true
+        - a VALID conclusion is one that is always true
+            anytime all the premises are true
 
 
-Note that the premises might make no sense!
+        Note that the premises might make no sense!
 
 
-////////////////////////////////////////////////////////
+        ////////////////////////////////////////////////////////
 
-Premise 1: If a person wears a red shirt,
-    then they don't like pizza.
+        Premise 1: If a person wears a red shirt,
+            then they don't like pizza.
 
-Premise 2: Fred is wearing a red shirt.
+        Premise 2: Fred is wearing a red shirt.
 
-Conclusion: Fred doesn't like pizza.
+        Conclusion: Fred doesn't like pizza.
 
 
 
---> Is this a valid argument? 
+        --> Is this a valid argument? 
 
 
 
-(is there a hidden assumption we're making about Fred?)
+        (is there a hidden assumption we're making about Fred?)
+Assumptions made
+1. Fred is a person 
 
 
+        ////////////////////////////////////////////////////////
 
+        Logical Arguments with "OR"
+            - can be ambiguous! Why?
+Inclusive or exclusive 'or' is not specified
+Often assumed exclusive in life, but is inclusive in programming
 
+        I order fries or I order chips.
 
-////////////////////////////////////////////////////////
 
-Logical Arguments with "OR"
-    - can be ambiguous! Why?
 
+        - in English, how do we interpret "or"? 
+exclusive
 
-I order fries or I order chips.
 
+        - in programming? 
+inclusive
 
 
-- in English, how do we interpret "or"? 
 
+        "Or" in THIS class: 
+Exclusive (Like programming)
 
 
-- in programming? 
 
 
+        /////////////////////////////
 
+        Premise 1: I'll fold the laundry or I'll do the dishes.
+        Premise 2: I don't fold the laundry.
 
-"Or" in THIS class: 
+        --> What can I conclude? 
+I do the dishes
 
 
 
+        //////////////////////////////////////////////////////////
 
+        num = 5;
+        if (num < 4 || x >= 10) {
+            statement;
+        }
 
-/////////////////////////////
 
-Premise 1: I'll fold the laundry or I'll do the dishes.
-Premise 2: I don't fold the laundry.
 
---> What can I conclude? 
+        Suppose we know "statement" is executed (arguement == True)
+        --> What can we conclude? 
+Condition is met
 
 
 
 
-//////////////////////////////////////////////////////////
 
-num = 5;
-if (num < 4 || x >= 10) {
-    statement;
-}
+        /////////////////////////////////////////////////////////
 
+        x = 9;
+        if (num < 4 || x >= 10) {
+            if (num > 2) {
+                statement;
+            }
+        }
 
 
-Suppose we know "statement" is executed
---> What can we conclude? 
 
+        Suppose we know "statement" is executed (Arguements is true)
+        --> What can we conclude? 
+num < 4, num > 2: 2 < n < 4
+num == int 
+therefore: num = 3
 
 
+        ////////////////////////////////////////////////////////
 
+        What rule are we seeing with an "or" statement,
+        where we know that one of the statements is NOT true?
 
-/////////////////////////////////////////////////////////
+The other side will be true
 
-x = 9;
-if (num < 4 || x >= 10) {
-    if (num > 2) {
-        statement;
-    }
-}
 
 
 
-Suppose we know "statement" is executed
---> What can we conclude? 
+        ////////////////////////////////////////////////////////
 
+        Logical Arguments with "IF/THEN" (aka "implies" -> )
 
+        If it is raining, then I will get wet.
+        It is raining.
 
-////////////////////////////////////////////////////////
+        --> What can I conclude? 
+I got wet
 
-What rule are we seeing with an "or" statement,
-where we know that one of the statements is NOT true?
 
 
+        How to write with -> symbol?
+r = is raining, w = get wet
+r -> w
 
+        ////////////////////////////////////////////////////////
 
+        When we have an "if/then" statement,
+        and we know that the "if" part is true?
 
+            ...what can we always conclude?
+then is true if the 'if' statement occurs (modus ponens)
 
-////////////////////////////////////////////////////////
 
-Logical Arguments with "IF/THEN" (aka "implies" -> )
 
-If it is raining, then I will get wet.
-It is raining.
 
---> What can I conclude? 
+        /////////////////////////////////////////////////////////
 
+        If I don't hear my alarm, then I will be late for class.
+        I am late for class.
 
+        --> What can I conclude?
+Nothing (because it's only a one directional promise: think coding)
+There could've been another reason
 
 
-How to write with -> symbol?
 
 
 
-////////////////////////////////////////////////////////
+        /////////////////////////////////////////////////////////
 
-When we have an "if/then" statement,
-and we know that the "if" part is true?
+        If I don't hear my alarm, then I will be late for class.
+        I hear my alarm.
 
-    ...what can we always conclude?
+        --> What can I conclude? 
+Nothing because there was no promise of action
+Can't conclude
 
 
 
 
 
-/////////////////////////////////////////////////////////
 
-If I don't hear my alarm, then I will be late for class.
-I am late for class.
 
---> What can I conclude?
+        /////////////////////////////////////////////////////////
 
+        If I don't hear my alarm, then I will be late for class.
+        I'm not late for class.
 
+        --> What can I conclude?
+You heard the alarm
+(you aren't late, so you can promise to have heard the alarm)
 
+(Contrapositive situation: multifaceted interactions with statements and assumptions)
 
 
+        IF I don't hear my alarm THEN I will be late for class.
 
-/////////////////////////////////////////////////////////
+        is equivalent to:
+If I'm not late to class, then I did hear my alarm
+p -> q is equivalent !p -> !q
 
-If I don't hear my alarm, then I will be late for class.
-I hear my alarm.
 
---> What can I conclude? 
 
 
+        if (condition) {
+            statement
+        }
 
+        --> what if we know statement is NOT executed? 
+condition != true || condition == false
 
 
+        If p Then q
 
+        ... is equivalent to?
 
 
-/////////////////////////////////////////////////////////
+        ////////////////////////////////////////////////////////
 
-If I don't hear my alarm, then I will be late for class.
-I'm not late for class.
+        More if/then logic in programming.
 
---> What can I conclude?
 
+        if (num < 4 || x >= 10) {
 
+            y = 17;
+        }
 
+        --> suppose y is 17 here. What do we know?
+Nothing
+because it might've already been 17 or it was changed to 17
 
-IF I don't hear my alarm THEN I will be late for class.
 
-is equivalent to:
 
+        /////////////////////////////////////////////////////////
 
+        y = 10;
+        if (num < 4 || x >= 10) {
 
+            y = 17;
+        }
 
+        --> suppose y is 17 here. Can we conclude anything now?
+(num < 4 || x >= 10) == true
 
-if (condition) {
-    statement
-}
 
---> what if we know statement is NOT executed? 
 
 
+        //////////////////////////////////////////////////////////
 
-If p Then q
+        if (num < 4 || x >= 10) {
 
-... is equivalent to?
+            y = 17;
+        }
 
+        --> suppose y is NOT 17 here. What do we know?
+Condition == false
+(num >= 4 && x < 10)
+        ///////////////////////////////////////////////////////
 
-////////////////////////////////////////////////////////
+        Attendance/practice quiz in Canvas
 
-More if/then logic in programming.
 
+        Logic puzzles.
 
-if (num < 4 || x >= 10) {
+        The puzzles in this lecture are from or inspired by:
+        "What is the Name of This Book?", by Raymond Smullyan
 
-    y = 17;
-}
+        ///////////////////////////////////////////////////////
 
---> suppose y is 17 here. What do we know?
+        The island of Knights and Knaves.
+        Each inhabitant is either a knight or a knave.
 
+        Knights ALWAYS tell the truth, and knaves ALWAYS lie.
 
 
+        Who can say, "I'm a knave"? 
 
-/////////////////////////////////////////////////////////
+        Can a knight? No, that's a lie
+        Can a knave?  No, that's the truth
+No one because the knight's will claim themselves as a knight, and the knave's anything but a knave
 
-y = 10;
-if (num < 4 || x >= 10) {
 
-    y = 17;
-}
+        //////////////////////////////////////////////////////////
 
---> suppose y is 17 here. Can we conclude anything now?
+        You see two inhabitants, Eve and Fred.
+        Eve says, "I am a knave or Fred is a knight."
+        What are Eve and Fred? 
+If knight: True (If Fred is a knight)
+If knave: True (no matter what Fred is and Knave's ALWAYS lie)
 
 
+        (what does the "or" mean?) 
+Inclusive because the knave ALWAYS lie or the knight ALWAYS tells the truth
 
 
+        Her WHOLE statement is the or -- we only need to whole statement
+        to be true, not each individual piece.
 
-//////////////////////////////////////////////////////////
 
-if (num < 4 || x >= 10) {
+        /////////////////////////////////////////////////////////
 
-    y = 17;
-}
+        You see two different inhabitants, Ava and Bob.
 
---> suppose y is NOT 17 here. What do we know?
+        Ava says that Bob is a knave.
+        Bob says, "Neither Ava nor I are knaves."
+Ava and Bob are knights
+If Bob(Knave)
+    one or both is a knave
+If Bob(Knight)
+    both are Knights
 
+        What does "neither" mean?
+            When is Bob's statement true? 
+both knights
+            When is Bob's statement false? 
+one or both knaves
 
-///////////////////////////////////////////////////////
 
-Attendance/practice quiz in Canvas
+If Ava knight: Bob == knave 
+    If Bob Knave: then True (One or both must be a knave)
+    True
+If ava knave: Bob == knight 
+    If Bob knight: then false (both must be a knight)
+    False
 
 
-///////////////////////////////////////////////////////
 
-Logic puzzles.
+        What are Ava and Bob?
+Ava == knight
+Bob == Knave
 
-The puzzles in this lecture are from or inspired by:
-"What is the Name of This Book?", by Raymond Smullyan
+        
 
-///////////////////////////////////////////////////////
 
-The island of Knights and Knaves.
-Each inhabitant is either a knight or a knave.
 
-Knights ALWAYS tell the truth, and knaves ALWAYS lie.
+        Homework 1: due Tuesday, September 2
+            - first page of homework is logical reasoning
+                (what we did today)
+            - second page is logic puzzles
 
-///////////////////////////////////////////////////////
-
-Who can say, "I'm a knave"? 
-
-Can a knight?
-Can a knave?
-
-
-
-//////////////////////////////////////////////////////////
-
-You see two inhabitants, Eve and Fred.
-
-Eve says, "I am a knave or Fred is a knight."
-
-
-
-What are Eve and Fred? 
-
-
-
-(what does the "or" mean?) 
-
-
-
-Her WHOLE statement is the or -- we only need to whole statement
-to be true, not each individual piece.
-
-
-/////////////////////////////////////////////////////////
-
-You see two different inhabitants, Ava and Bob.
-
-Ava says that Bob is a knave.
-Bob says, "Neither Ava nor I are knaves."
-
-
-
-What are Ava and Bob?
-
-
-
-
-What does "neither" mean?
-    When is Bob's statement true? 
-    When is Bob's statement false? 
-
-
-
-
-////////////////////////////////////////////////////////
-
-Homework 0: due Thursday, August 28
-    - get Sireum + GitHub ready (do this now!)
-    - post something in Ed Discussion
-    - come to office hours or post in Ed Discussion if
-        you need software setup help!
-
-Homework 1: due Tuesday, September 2
-    - first page of homework is logical reasoning
-        (what we did today)
-    - second page is logic puzzles
-
-Next: finish logic puzzles, start truth tables
+        Next: finish logic puzzles, start truth tables
