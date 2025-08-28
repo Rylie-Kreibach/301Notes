@@ -1,369 +1,374 @@
-HW 0 - due today (what to submit?)
 
-    link format
+        HW 1 - due Tuesday, September 2
+            be sure to explain your reasoning when asked
+            on logic puzzles, should be clear why your answer is the only  
+                one
 
 
+        ////////////////////////////////////////////////////////
 
-HW 1 - due Tuesday, September 2
-    be sure to explain your reasoning when asked
-    on logic puzzles, should be clear why your answer is the only  
-        one
+        - where to find examples from class
 
+        - how to clone lecture notes repo
 
-////////////////////////////////////////////////////////
+        - weekly review quizzes
 
-- where to find examples from class
+        - what to do before/after each class
 
-- how to clone lecture notes repo
+        /////////////////////////////////////////////////////////
 
-- weekly review quizzes
+        Today:
 
-- what to do before/after each class
+        - More with logical reasoning and puzzles
+        - Begin logic gates and truth tables
+        - Evaluating logical statements
 
-/////////////////////////////////////////////////////////
 
-Today:
+        /////////////////////////////////////////////////////////
 
-- More with logical reasoning and puzzles
-- Begin logic gates and truth tables
-- Evaluating logical statements
+        All ints.
 
+        if (x < 3 || y > 4) {
+            statements1;
+        }
+        else if (x < 5 && y == 7) {
+            statements2;
+        }
+        else {
+            statements3;
+        }
 
-/////////////////////////////////////////////////////////
 
-All ints.
 
-if (x < 3 || y > 4) {
-    statements1;
-}
-else if (x < 5 && y == 7) {
-    statements2;
-}
-else {
-    statements3;
-}
+        --> is it possible for "statements2" to execute?
+No
+    because (x < 3 || y > 4)
+        means that y == 7 is caught in the 1st if and can't be used for the 2nd
 
 
 
---> is it possible for "statements2" to execute?7
+        ////////////////////////////////////////////////////////
 
+        More with knights and knaves.
 
+        knights: each full statement that they make is true
+        knave: each full statement must be false
 
 
-////////////////////////////////////////////////////////
 
-More with knights and knaves.
 
-knights: each full statement that they make is true
-knave: each full statement must be false
+        You meet three inhabitants: Sarah, Bill and Mae.
 
+        Sarah tells you that only a knave would say that Bill is a knave.
+        Bill claims that it's false that Mae is a knave.
+        Mae tells you, "Bill would tell you that I am a knave."
 
+Sarah: Bill is a Knight
+Bill: Mae is a knight
+Mae: Bill says I'm a knave
 
+        What types are Sarah, Bill, and Mae?
+if Sarah (true/Knight) then would have to be a Bill == knight, Mae == knight
+        Bill(checks out)
+        Mae: Lies (can't if knight)
+    False
 
-You meet three inhabitants: Sarah, Bill and Mae.
+if Sarah (false/knave) then Bill == knave, Mae == knave
+        Bill(checks out): lies
+        Mae(checks out): lies (because Bill says she's a knight and that's incorrect)
+    True
 
-Sarah tells you that only a knave would say that Bill is a knave.
-Bill claims that it's false that Mae is a knave.
-Mae tells you, "Bill would tell you that I am a knave."
 
-What types are Sarah, Bill, and Mae?
+        (How might we simplify everything?)
 
+Sarah: Bill is a Knight
+Bill: Mae is a knight
+Mae: Bill says I'm a knave
+            
 
-(How might we simplify everything?)
 
+        ////////////////////////////////////
 
-    
+        Lion always lies on Mondays, Tuesdays, and Wednesdays.
+        Lion always tells the truth on other days.
+        Unicorn always lies on Thursdays, Fridays, and Saturdays,
+            and always tells the truth on other days.
 
+        On Sunday, everyone tells the truth.
 
-////////////////////////////////////
+        Lion says: "Yesterday was one of my lying days."
+        Unicorn says: "Yesterday was one of my lying days, too."
 
-Lion always lies on Mondays, Tuesdays, and Wednesdays.
-Lion always tells the truth on other days.
-Unicorn always lies on Thursdays, Fridays, and Saturdays,
-    and always tells the truth on other days.
+If sunday: false (both claim lying day, but both can't be true)
+If Tuesday: false (Neither can claim liar)
+Wednes, Sat, Fri, Tuesday: whoevers lying lied the day before but is still lying, so they can't claim that
+If Monday: false (both couldn't lie sun, so Unicorn can't claim that)
+If Thursday: Lion lied yester(True), Uni-lied yester (false, but liar)
 
-On Sunday, everyone tells the truth.
 
-Lion says: "Yesterday was one of my lying days."
-Unicorn says: "Yesterday was one of my lying days, too."
 
-What day is it?
+        What day is it?
+Thrusday
 
 
+        ////////////////////////////////
 
-////////////////////////////////
+        Tweedledee and Tweedledum are identical.
+        You know that one of them lies Mon/Tues/Wed,
+        and that the other lies Thurs/Fri/Sat.
+        (They tell the truth on non-lying days.)
 
-Tweedledee and Tweedledum are identical.
-You know that one of them lies Mon/Tues/Wed,
-and that the other lies Thurs/Fri/Sat.
-(They tell the truth on non-lying days.)
+        (So they both tell the truth on Sunday.)
 
-(So they both tell the truth on Sunday.)
+        You don't know which is which.
 
-You don't know which is which.
+        You see both of them together.
+        The first one says: "I'm Tweedledum." 
+        The second one says: "I'm Tweedledee."
 
-You see both of them together.
-The first one says: "I'm Tweedledum." 
-The second one says: "I'm Tweedledee."
+        Which is which? What day is it?
+Sunday (because both are true. Otherwise there'd be duplication or a random name)
+    dum==dum
+    dee==dee
 
-Which is which? What day is it?
 
 
+        //////////////////////////////////
 
+        You know that either Tweedledum or Tweedledee has
+            lost a rattle.
+        You find it, and want to return it to the correct one.
+        You don't know what day it is, but are sure that it isn’t
+            Sunday.
 
 
+        (we know one is lying, one is telling truth)
 
+        The first one says: "Tweedledee owns the rattle."
+        The second one says: "I'm Tweedledee!"
 
+If 1st lies: dum owns the rattle, 2nd is dee
+If 2nd lies: dee owns the rattle, 2nd is dum
 
-//////////////////////////////////
+        Who gets the rattle?
+1st twin
 
-In-class quiz
+        Who is who?
+We can't tell
 
+       
 
 
 
 
-//////////////////////////////////
 
-You know that either Tweedledum or Tweedledee has
-    lost a rattle.
-You find it, and want to return it to the correct one.
-You don't know what day it is, but are sure that it isn’t
-    Sunday.
 
+        ///////////////////////////////////
 
-(we know one is lying, one is telling truth)
+        Cheryl's birthday problem.
 
-The first one says: "Tweedledee owns the rattle."
-The second one says: "I'm Tweedledee!"
+        Written for Singapore and Asian Schools Math Olympiad in 2015
 
-Who gets the rattle?
+        Albert and Bernard want to know when Cheryl's birthday is.
+        Cheryl gives them 10 potential dates:
 
-Who is who?
+        May 15, May 16, May 19
+        June 17, June 18
+        July 14, July 16
+        August 14, August 15, August 17
 
+        Cheryl privately tells Albert her birthday month.
+            (May, June, July, or August)
 
-///////////////////////////////////////////
+        Cheryl privately tells Bernard her birthday day (number).
+            (14-19)
 
-Based on Shakespeare's "Merchant of Venice".
 
-There are three caskets – one gold, one silver,
-    and one lead.
-Exactly one of the caskets contains a portrait.
-Each casket has a message on it, and you know that at most
-    one of the messages is true.
+        Albert says: "I don't know when Cheryl's birthday is,
+            but I know Bernard doesn't know too."
 
-Gold casket: "The portrait is in this casket."
-Silver casket: "The portrait is not in this casket."
-Lead casket: "The portrait is not in the gold casket."
+        Bernard says: "At first I didn't know when Cheryl's
+            birthday is, but now I do."
 
-Where is the portrait?
 
+        Albert says: "Then I also know when Cheryl's birthday is."
 
 
+        May 15, May 16, May 19          Unique number, would've know before
+        June 17, June 18                unique number, would've know before
+        July 14, July 16                
+        August 14, August 15, August 17
+            not 14, 17, 16 because repeated
+        When is it?
+July 16th
 
 
 
-///////////////////////////////////
+        ///////////////////////////////////
 
-Cheryl's birthday problem.
+        Start truth tables and logic gates.
 
-Written for Singapore and Asian Schools Math Olympiad in 2015
+            have boolean variables
+            want to express statements like: p AND (q OR r)
 
-Albert and Bernard want to know when Cheryl's birthday is.
-Cheryl gives them 10 potential dates:
+        Variables can be true or false
 
-May 15, May 16, May 19
-June 17, June 18
-July 14, July 16
-August 14, August 15, August 17
+        Basic operations:
 
-Cheryl privately tells Albert her birthday month.
-    (May, June, July, or August)
+        ∧   and (&&)
+        ∨   or (inclusive or ||)
+        ¬   not (!)
+        →   implies (if/then ->)
 
-Cheryl privately tells Bernard her birthday day (number).
-    (14-19)
 
+        Basic logic gates (draw on board)
 
-Albert says: "I don't know when Cheryl's birthday is,
-    but I know Bernard doesn't know too."
 
-Bernard says: "At first I didn't know when Cheryl's
-    birthday is, but now I do."
+        gates still used to design circuits
 
 
-Albert says: "Then I also know when Cheryl's birthday is."
+        why do we care about equivalent circuits?
 
 
-When is it?
+        what about programming?
 
+        ///////////////////////////////////////////////////
 
+        Fill in basic operations:
 
 
-///////////////////////////////////
+        AND:
 
-Start truth tables and logic gates.
+        p q  #  p ∧ q
+        --------------
+        T T  #    T
+        T F  #    F
+        F T  #    F
+        F F  #    F
 
-    have boolean variables
-    want to express statements like: p AND (q OR r)
 
-Variables can be true or false
+        OR:
 
-Basic operations:
+        p q  #  p ∨ q
+        --------------
+        T T  #    T
+        T F  #    T
+        F T  #    T
+        F F  #    F
 
-∧   and (&&)
-∨   or (inclusive or ||)
-¬   not (!)
-→   implies (if/then ->)
 
+        NOT:
 
-Basic logic gates (draw on board)
+        p  # ¬p
+        --------
+        T  #  F
+        F  #  T
 
+        ////////////////////////////////////////////////
 
-gates still used to design circuits
+        IMPLIES operator →
 
+        "If I have a test, then I will study"
 
-why do we care about equivalent circuits?
+        p: I have a test
+        q: I will study
 
+        p → q
 
-what about programming?
+        It is false if we have BROKEN A PROMISE.
+        Otherwise we have not.
 
-///////////////////////////////////////////////////
+        p q  #  p → q
+        --------------
+        T T  #    T
+        T F  #    F  
+        F T  #    T
+        F F  #    T 
 
-Fill in basic operations:
+        /////////////////////////////////////////
 
+        How does the implies operator relate to programming?
+if else statements
 
-AND:
 
-p q  #  p ∧ q
---------------
-T T  #    
-T F  #    
-F T  #     
-F F  #    
+        //////////////////////////////////////////
 
+        Design circuits for:
 
-OR:
+        ¬(p ∨ q)       (p NOR q)
+p and q then not        not (p or q)
 
-p q  #  p ∨ q
---------------
-T T  #    
-T F  #    
-F T  #    
-F F  #    
+        p XOR q (with just the gates we've seen, not a specific XOR gate)
 
+ (p or q) and (p and q)
 
-NOT:
+        /////////////////////////////////////
 
-p  # ¬p
---------
-T  # 
-F  # 
+        How would we evaluate the output of these circuits with
+        different inputs?
 
-////////////////////////////////////////////////
 
-IMPLIES operator →
 
-"If I have a test, then I will study"
+        Graphically build circuits:
 
-p: I have a test
-q: I will study
+        https://logic.ly/demo/
 
-p → q
 
-It is false if we have BROKEN A PROMISE.
-Otherwise we have not.
+        //////////////////////////////////////
 
-p q  #  p → q
---------------
-T T  #    
-T F  #      
-F T  #    
-F F  #     
+        Evaluating logical statements.
 
-/////////////////////////////////////////
+        Basic operations:
 
-How does the implies operator relate to programming?
+        ∧ - AND
+        ∨ - OR (inclusive or)
+        ¬ - NOT
+        → - IMPLIES
 
+        ////////////////////////////////////////
 
+        Consider ¬p ∨ q ∧ r.
 
-//////////////////////////////////////////
+        --> what operation do we do first?
 
-Design circuits for:
 
-¬(p ∨ q)       (p NOR q)
 
+        Order of operations
 
-p XOR q (with just the gates we've seen, not a specific XOR gate)
+        In math?
 
 
 
-/////////////////////////////////////
 
-How would we evaluate the output of these circuits with
-different inputs?
+        For logic statements:
 
+        From highest (happens first) to lowest (happens last) precedence:
 
 
-Graphically build circuits:
+        ////////////////////////////////////////////////
 
-https://logic.ly/demo/
+        Given this statement:
 
+            ¬p ∨ q ∧ r
 
-//////////////////////////////////////
+        Add () to show the order of operations.
 
-Evaluating logical statements.
 
-Basic operations:
 
-∧ - AND
-∨ - OR (inclusive or)
-¬ - NOT
-→ - IMPLIES
 
-////////////////////////////////////////
+        Evaluate the above statement using these
+        variable assignments:
 
-Consider ¬p ∨ q ∧ r.
+        p is T
+        q is F
+        r is F
 
---> what operation do we do first?
 
 
+        ///////////////////////////////////////////
 
-Order of operations
-
-In math?
-
-
-
-
-For logic statements:
-
-From highest (happens first) to lowest (happens last) precedence:
-
-
-////////////////////////////////////////////////
-
-Given this statement:
-
-    ¬p ∨ q ∧ r
-
-Add () to show the order of operations.
-
-
-
-
-Evaluate the above statement using these
-variable assignments:
-
-p is T
-q is F
-r is F
-
-
-
-///////////////////////////////////////////
-
-Next:
-- more with order of operations
-- bigger truth tables
-- parse trees
-- begin propositional logic
+        Next:
+        - more with order of operations
+        - bigger truth tables
+        - parse trees
+        - begin propositional logic
