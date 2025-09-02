@@ -335,9 +335,13 @@ p and q then not        not (p or q)
 
         Order of operations
 
-        In math?
+        In of logical operators?
 
-
+() parenthesis
+! not
+& and
+| or 
+-> implies
 
 
         For logic statements:
@@ -352,7 +356,7 @@ p and q then not        not (p or q)
             ¬p ∨ q ∧ r
 
         Add () to show the order of operations.
-
+((!P) || (q && r))
 
 
 
@@ -362,8 +366,9 @@ p and q then not        not (p or q)
         p is T
         q is F
         r is F
-
-
+((!T) || (F && F))
+(F || F)
+    F
 
         ///////////////////////////////////////////
 
