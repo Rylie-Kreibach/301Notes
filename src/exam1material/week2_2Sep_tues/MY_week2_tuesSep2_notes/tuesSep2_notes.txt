@@ -151,10 +151,6 @@ rightmost && (Near s)
 
         ////////////////////////////////////////////////////
 
-        In-class practice quiz
-
-        ////////////////////////////////////////////////////
-
         Listing all truth assignments for a logical statement.
 
 
@@ -163,19 +159,19 @@ rightmost && (Near s)
 
             p, q
 
-
+4
 
 
 
         If we have 3 variables, how many possible truth assignments?
 
             p, q, r
-
+8
 
 
         If we have n variables, how many possible truth assignments?
 
-
+2^n
 
 
 
@@ -190,27 +186,25 @@ rightmost && (Near s)
 
 
 
-        contingent: 
+        contingent: Mix of true and false
+
+            Example? p || q
+
+
+
+        contradictory: Always False
+
+            Example? ! p && p
+
+
+        tautology: Always true
 
             Example? 
-
-
-
-        contradictory:
-
-            Example? 
-
-
-        tautology:
-
-            Example? 
+        ! P || p
             
 
         ///////////////////////////////////////////
 
-        ∧ ∨ ¬ →
-
-        ///////////////////////////////////////////
 
         Compound truth tables.
 
@@ -219,32 +213,32 @@ rightmost && (Near s)
 
         (p ∧ r) → (r ∨ ¬q)
 
-
+                         *
         -----------------------------
-        p q r  #  (p ∧ r) → (r ∨ ¬q)
+        p q r #  (p ∧ r) → (r ∨ ¬q)
         -----------------------------
-        T T T #      
-        T T F #      
-        T F T #      
-        T F F #     
-        F T T #     
-        F T F #    
-        F F T #     
-        F F F #     
+        T T T #     T    T    T  F
+        T T F #     F    T    F  F
+        T F T #     T    T    T  T
+        T F F #     F    T    T  T 
+        F T T #     F    T    T  F  
+        F T F #     F    T    F  F  
+        F F T #     F    T    T  T 
+        F F F #     F    T    T  T
         -----------------------------
-
-
+Tautology
+    T: [TTT] [TTF] [TFT] [TFF] [FTT] [FTF] [FFT] [FFF]
 
 
 
         --> top-level operator?
-
+implies
         --> need to evaluate statement on ALL possible truth assignments
-
+yes
         --> how many truth assignments are there?
-
+8
         --> how would we classify this truth table?
-
+tautology
 
         /////////////////////////////////////////
 
@@ -263,9 +257,7 @@ rightmost && (Near s)
         --> order of operations in Logika
 
         //////////////////////////////////////
-        Complete tautology.logika
-
-        //////////////////////////////////////
+        
 
         trees
 
@@ -274,6 +266,7 @@ rightmost && (Near s)
         parse trees
 
         --> what are they?
+    shows the levels of logical priority and the variable correlation
 
         --> draw one for (p ∧ q) → ¬r
 
@@ -315,24 +308,27 @@ rightmost && (Near s)
         ////////////////////////////////////////
 
         Which ones are propositions?
+evaluate to true or false
+
+        Propositional atom: a simple proposition without operators
 
         Today is Thursday.
-
+positional
 
         What time is it?
-
+    Not
 
         x == 2
-
+propositional
 
         Pigs can fly.
-
+Positional
 
         Drive carefully.
-
+    Not
 
         y <= 4
-
+propositional
 
 
         ////////////////////////////////////////
@@ -351,20 +347,22 @@ rightmost && (Near s)
         How would we express these as English sentences?
 
             ¬p:
-
+It's not below freezing
 
             p ∧ q:
-
+It's below freezing and it's snowing
 
             p → q :
-
+If it's below freezing, then it snows
 
             ¬p → ¬q:
-
+If it's not below, the it doesn't snow
 
             r ∨ s:
+If (y <= 4 || x == 2)
 
             ¬r:
+y > 4
 
         ////////////////////////
 

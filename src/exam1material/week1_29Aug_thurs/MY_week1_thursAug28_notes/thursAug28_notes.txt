@@ -372,6 +372,12 @@ p and q then not        not (p or q)
 
         ///////////////////////////////////////////
 
+
+
+
+
+
+
         Next:
         - more with order of operations
         - bigger truth tables
