@@ -20,10 +20,13 @@ Today:
 
 Associativity.
 
-Meaning?
-
+Meaning? parenthesis change doesn't matter
+(p && q) || r equivalent to p && (q || r)
 
 Which operators are associative? Which are not?
+Associative: AND, OR
+Not: IMPLIES
+
 
 How to prove each case?
 
@@ -32,11 +35,14 @@ How to prove each case?
 
 Commutativity.
 
-Meaning?
+Meaning? order doesn't matter
 
 Which operators are commutative? Which are not?
 
 How to prove each case?
+
+Communative: AND, OR
+not: IMPLIES
 
 
 ////////////////////////////////
@@ -45,14 +51,14 @@ How to prove each case?
 
 Satisfiability.
 
---> definition? 
+--> definition? At least one truth assignment outputs true
 
 --> how to prove something is satisfiable?
-
+Find just one truth assignment which is true
 
 
 --> how to prove something is not satisfiable?
-
+Full truth table check to see that it's contradictory
 
 
 ////////////////////////////
@@ -60,18 +66,23 @@ Satisfiability.
 SAT
 
 straightforward approach to checking all possibilities:
-
+generate all truth assignments and try them all.
+n vaariables, 2^n truth assignments.
+    (exponential time algorithms)
 
 
 
 - Aside: P and NP problems
+P: solved in polynomial 
+NP: checked in polynomial
 
 running time programs
 
 can we solve a problem in polynomial time?
+2^n
 
 can we check a solution to a problem in polynomial time?
-
+not exponential time, it would be polynomial time
 
 
 ////////////////////////
@@ -92,10 +103,17 @@ An argument is of the form:
 
 
 
---> When is an argument considered valid?
+--> When is an argument considered invalid?
+    implies statement, only false when [T F] 
+    When all premises are true and the conclusion is false.
+
+--> When is an argument considered invalid?
+    Anytime the premises are true and the conclusion is true.
 
 
 
+ONE INVALID ASSIGNMENT MAKES THE ENTIRE THING INVALID EVEN IF THERE'S A 
+VALID ASSIGNMENT
 
 ///////////////////////////////////////
 
@@ -117,15 +135,19 @@ I want to prove:
 
 
 Propositional atoms:
-
+ p: CIS 
+ q: ECE
+ r: log in
 
 
 Translations:
-
-
+    - p || q
+    - !q
+    - p -> r
+        Conclusion: r && p
 
 --> How to prove with a truth table?
-
+Find truth assignments where all all 3 premises are and conclusion is also true.
 
 
 
@@ -170,7 +192,8 @@ We wish to prove:
 /////////////////////////////
 
 When is an argument invalid?
-
+When all premises are true, but the conclusion is false.
+Therefore, the promise was broken
 
 
 
@@ -185,12 +208,13 @@ Proposed conclusion:
 
 1) Translate to propositional logic
 
-
+premise: p -> q, q
+conclusion: p
 
 
 
 2) How can we show it is invalid?
-
+Invalid: P = F, q = F
 
 
 
@@ -210,12 +234,14 @@ Showing arguments are invalid in Logika
 
 Does it matter if the conclusion is true when 
     the premises aren't?
-
+No
 
 Does it matter if one premise is true when the other isn't?
+No, only care when all premises are true
 
 Does it matter if the conclusion is false when some 
     (but not all) of the premises are true?
+No
 
 ////////////////////////////
 
@@ -255,7 +281,7 @@ New idea: demonstrate conclusion follows from premises using
 
 Want to prove a *sequent* of the form:
 
-    premises ⊢ conclusion
+    premises ⊢ conclusion (Sequent)
 
 where *premises* is a comma-separated list.
 
@@ -340,7 +366,7 @@ and also:
     c → d
 
 What could we claim with AndI?
-
+(a || !b) && (c -> d)
 
 
 
@@ -373,11 +399,15 @@ Justifications so far:
     Premise
 
     AndI(lhsNum, rhsNum)
+left side, right side
+(and introduction)
 
     AndE1(andNum)
+left side check
+(and elimination)
 
     AndE2(andNum)
-
+right side check
 
 --> what do these look like in programming?
 
