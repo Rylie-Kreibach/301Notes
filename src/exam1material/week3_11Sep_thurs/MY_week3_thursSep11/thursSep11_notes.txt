@@ -259,7 +259,7 @@ SubProof(
         Assume(q),
         ...R
     ),
-    R using OrE with p || 1 and two subproofs
+    R using OrE with p || q and two subproofs
 ),
 SubProof(
     Assume ( r )

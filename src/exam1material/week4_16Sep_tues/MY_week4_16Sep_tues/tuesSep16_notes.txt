@@ -1,168 +1,190 @@
-HW 3 due tonight - don't add parentheses
+        HW 3 due tonight - don't add parentheses
 
 
-Problem 6:
+        Problem 6:
 
-p ∨ q ∨ r |- r ∨ q ∨ p
+        p ∨ q ∨ r |- r ∨ q ∨ p
 
-vs
+        vs
 
-p ∨ (q ∨ r)  
+        p ∨ (q ∨ r)  
 
-/////////////
+Assume p|Q
+    Assume p
+    goal: p|q|r
+    Assume q
+    goal: p|q|r
+Assume r
+    goal: p|q|r
+goal: p|q|r
 
-no new homework this week
+        /////////////
 
-Exam 1 is Thursday, September 18
+        no new homework this week
 
-////////////////////////////////
+        Exam 1 is Thursday, September 18
 
-Today:
-- Proof of distributive law
-- Implies elimination
-- Exam 1 review
+        ////////////////////////////////
 
-////////////////////////////////
+        Today:
+        - Proof of distributive law
+        - Implies elimination
+        - Exam 1 review
 
-Proving two statements are equivalent with deduction?
+        ////////////////////////////////
 
+        Proving two statements are equivalent with deduction?
 
-statement1
-statement2
 
+        statement1
+        statement2
 
+With deduction two proofs. (With truth tables different)
+Proof 1: statement1 |- statement2
 
+Proof 2: statement2 |- statement 1
 
-////////////////////////////////
 
-Example: prove one of the distributive laws
 
-p ∨ (q ∧ r)     is equivalent to       (p ∨ q) ∧ (p ∨ r)
+        ////////////////////////////////
 
+        Example: prove one of the distributive laws
 
-(orDist1.sc and orDist2.sc)
+        p ∨ (q ∧ r)     is equivalent to       (p ∨ q) ∧ (p ∨ r)
 
 
+        (orDist1.sc and orDist2.sc)
 
-////////////////////////////////
 
-if (extraCredit == true || grade < 90) {
-    if (extraCredit == true || grade >= 80) {
-        //do stuff
-    }
-}
 
+        ////////////////////////////////
 
---> how does the distributive law tell us we can rewrite 
-    this?
+        if (extraCredit == true || grade < 90) {
+            if (extraCredit == true || grade >= 80) {
+                //do stuff
+            }
+        }
 
+Or:
+if (extracredit == true || (grade > = 80 && grade < 90)
 
-////////////////////////////////
+        --> how does the distributive law tell us we can rewrite 
+            this?
 
-Implies-elimination, ImplyE
 
-          P, P → Q
-ImplyE: -----------
-            Q
+        ////////////////////////////////
 
+        Implies-elimination, ImplyE
 
+                P, P → Q
+        ImplyE: -----------
+                    Q
 
-(This rule is also called "modus ponens")
 
-Example:
 
-//Suppose we know x > 5. What can we conclude?
+        (This rule is also called "modus ponens")
 
-if (x > 5) {
-    y = 17;
-}
+        Example:
 
-///////////////////////////////
+        //Suppose we know x > 5. What can we conclude?
 
-Syntax for using ImplyE:
+        if (x > 5) {
+            y = 17;
+        }
 
-a ( P       )   by Justification,
-b ( P → Q   )   by Justification,
-c ( Q       )   by ImplyE(b, a)
+        ///////////////////////////////
 
-__>:
+        Syntax for using ImplyE:
 
-////////////////////////////////////////
+        a ( P       )   by Justification,
+        b ( P → Q   )   by Justification,
+        c ( Q       )   by ImplyE(b, a)
 
-Example (imply1.sc):
+        __>:
 
-(p ∧ q) → r,  p → q,  p  ⊢ r
+        ////////////////////////////////////////
 
+        Example (imply1.sc):
 
+        (p ∧ q) → r,  p → q,  p  ⊢ r
 
-Example (imply2.logika):
 
-p → r,  q → r,  p ∨ q  ⊢ r
 
+        Example (imply2.logika):
 
-///////////////////////////////////////
+        p → r,  q → r,  p ∨ q  ⊢ r
 
-(in-class quiz)
 
+        ///////////////////////////////////////
 
-////////////////////////////////////////
+        (in-class quiz)
 
-(This ends the new material for Exam 1)
 
-(We will do Implies-introduction after Exam 1)
+        ////////////////////////////////////////
 
-////////////////////////////////////////
+        (This ends the new material for Exam 1)
 
-Exam 1 review.
+        (We will do Implies-introduction after Exam 1)
 
-Covers everything we've done up to this point 
-(including today).
+        ////////////////////////////////////////
 
+        Exam 1 review.
 
-See Canvas announcement for list of topics.
+        Covers everything we've done up to this point 
+        (including today).
 
 
+        See Canvas announcement for list of topics.
 
 
-How to prove two propositional logic statements are 
-equivalent?
 
-    Approach 1:
 
-    Approach 2:
+        How to prove two propositional logic statements are 
+        equivalent?
 
+            Approach 1:
+truth tables
+    for each possible assignment both are the same
+            Approach 2:
+Duduction
 
 
 
-How to prove propositional logic statements are 
-NOT equivalent?
+        How to prove propositional logic statements are 
+        NOT equivalent?
+One counterexample.
+1 truth assignment where the outputs differ
 
+Can't use duduction to prove inequivalent
 
 
+        What is satisfiability? 
+1 or more truth assignments makes the statement output true 
 
-What is satisfiability? 
+Satisfiable: Contingent or Tautology)
+Not satisfiable: Contradictory
 
+        - Determining whether an argument is valid or invalid
+            (what is an argument?)
+            valid: 
+When all premises are true than the conclusion is always true
+            
+            how prove valid? 
+1. Combined truth table: Make sure True premises only makes true conclusions
+2. Natural Deduction: Onlly proves valid arguements
+            how prove invalid? 
+1. Find 1 truth assignment which makes the premises true and the conclusion false
 
+        /////////////////////////////////////////
 
-- Determining whether an argument is valid or invalid
-    (what is an argument?)
-    valid: 
+        Closed notes/computers.
 
-    how prove valid?
 
-    how prove invalid?
+        Mix of multiple choice (like quizzes) and open-ended (like homework)
 
+        Some problems will ask for a proof or explanation --
+            read carefully!
 
-/////////////////////////////////////////
+        ////////////////////////////////////////
 
-Closed notes/computers.
-
-
-Mix of multiple choice (like quizzes) and open-ended (like homework)
-
-Some problems will ask for a proof or explanation --
-    read carefully!
-
-////////////////////////////////////////
-
-See practice problems.
+        See practice problems.
