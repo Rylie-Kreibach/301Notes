@@ -3,11 +3,31 @@ HW 3 due tonight - don't add parentheses
 
 Problem 6:
 
+//(p ∨ q) ∨ r
+//(r ∨ q) ∨ p
 p ∨ q ∨ r |- r ∨ q ∨ p
 
 vs
 
 p ∨ (q ∨ r)  
+
+
+using: (p ∨ q) ∨ r
+OrE subproofs:
+
+1) assume p ∨ q
+    nest OrE subproof
+    1) assume P
+        goal: r ∨ q ∨ p
+
+    2) assume q
+        goal: r ∨ q ∨ p
+
+goal: r ∨ q ∨ p
+
+2) assume r
+
+goal: r ∨ q ∨ p
 
 /////////////
 
@@ -30,8 +50,10 @@ Proving two statements are equivalent with deduction?
 statement1
 statement2
 
+Proof 1: statement1 |- statement2
 
 
+Proof 2: statement2 |- statement1
 
 ////////////////////////////////
 
@@ -51,6 +73,8 @@ if (extraCredit == true || grade < 90) {
         //do stuff
     }
 }
+
+if (extraCredit == true || (grade >= 80 && grade < 90))
 
 
 --> how does the distributive law tell us we can rewrite 
@@ -127,9 +151,13 @@ See Canvas announcement for list of topics.
 How to prove two propositional logic statements are 
 equivalent?
 
-    Approach 1:
+    Approach 1: truth tables (2)
+        for each truth assignment, both statements have the same 
+        output
 
-    Approach 2:
+    Approach 2: deduction (2)
+        statement1 |- statement2
+        statement2 |- statement1
 
 
 
@@ -137,20 +165,42 @@ equivalent?
 How to prove propositional logic statements are 
 NOT equivalent?
 
+find ONE counterexample (a truth assignment) where the
+two statements have different output
+
 
 
 
 What is satisfiability? 
+    there exists at least one truth assignment that makes
+    the statement output true
+
+    ARE satisfiable: contingent, tautology
+    NOT satisfiable: contradictory
+
+
+    prove satisfiability: find ONE truth assignment
+    prove NOT satisfiable: full truth table, show contradictory
 
 
 
 - Determining whether an argument is valid or invalid
     (what is an argument?)
-    valid: 
+    premises, conclusion
+
+    valid: every time all the premises are true then the conclusion
+    is also true
 
     how prove valid?
+        1) make a "combined" truth table, make sure every truth
+        assignment that makes all premises true also makes the 
+        conclusion true
+
+        2) deduction
 
     how prove invalid?
+        find one truth assignment that makes all premises true
+        but the conclusion false
 
 
 /////////////////////////////////////////
