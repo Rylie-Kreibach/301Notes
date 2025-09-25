@@ -1,212 +1,261 @@
-HW 4 due Tues Sep 30
+        HW 4 due Tues Sep 30
 
-Reminder: link format, not modifying premises/conclusion
+        Reminder: link format, not modifying premises/conclusion
 
-////////////////////////////
+        ////////////////////////////
 
-Today:
+        Today:
 
-- negation rules
-- natural deduction proof strategies
+        - negation rules
+        - natural deduction proof strategies
 
-////////////////////////////////
+        ////////////////////////////////
 
-Reminder: NegE
-
-
-        P    ¬P
-NegE: ----------
-          F
+        Reminder: NegE
 
 
-Syntax:
-
-a ( p  ) by Justification,
-b ( ¬p ) by Justification,
-c ( F  ) by NegE(a, b)
+                P    ¬P
+        NegE: ----------
+                F
 
 
-//////////////////////////////////
+        Syntax:
 
-Reminder: NegI
-
-        SubProof(
-            Assume( P ),
-          ... F
-        )
-NegI: ------------------
-              ¬P
+        a ( p  ) by Justification,
+        b ( ¬p ) by Justification,
+        c ( F  ) by NegE(a, b)
 
 
-Syntax:
+//If you want to proof a not statement. Assume it's true. Get a contradicition
+//Then use a NegI to assume it is NOT true
 
-a SubProof(
-    b Assume( p ),
-    ...
-    c ( F ) by Justification
-),
-d ( ¬p ) by NegI(a)
+        //////////////////////////////////
 
-//////////////////////////
+        Reminder: NegI
 
-Practice rules so far: 
-
-not1.sc, not2.sc, not3.sc
-
-////////////////////////////////
-
-Bottom-elimination:
-
-               F
-BottomE:  ----------
-               Q
+                SubProof(
+                    Assume( P ),
+                ... F
+                )
+        NegI: ------------------
+                    ¬P
 
 
-//how does this make logical sense?
+        Syntax:
 
-(think about what we are proving with an argument --
-    IF all the premises are true,
-    THEN we promise the conclusion is true)
-
-
-
-
-Proof by contradiction (reductio ad absurdum):
-
-        SubProof(
-            Assume(¬P),
+        a SubProof(
+            b Assume( p ),
             ...
-            F
+            c ( F ) by Justification
+        ),
+        d ( ¬p ) by NegI(a)
+
+        //////////////////////////
+
+        Practice rules so far: 
+
+        not1.sc, not2.sc, not3.sc
+
+        ////////////////////////////////
+
+        Bottom-elimination:
+
+                    F
+        BottomE:  ----------
+                    Q
+
+
+        //how does this make logical sense?
+
+        (think about what we are proving with an argument --
+            IF all the premises are true,
+            THEN we promise the conclusion is true)
+
+
+
+
+        Proof by contradiction (reductio ad absurdum):
+
+                SubProof(
+                    Assume(¬P),
+                    ...
+                    F
+                )
+        PbC:  -------------------
+                P
+
+
+        --> Difference between NegI and PbC?
+Use NegI if you're trying to prove a !p
+Use PbC if you're just proving a statement. (It's a a more experimental use. When you just happen to get a F)
+
+        ///////////////////////////////////
+
+        First example.
+
+        I go for a walk or I get coffee
+        I don't go for a walk.
+
+        Conclusion?
+I get coffee
+
+
+        ( p ∨ q, ¬p ) ⊢ ( q )
+        Proof(
+            1 ( p ∨ q )     by Premise,
+            2 ( ¬p )        by Premise,
+            3 SubProof(
+                4 Assume(p),
+                5 (F) NegE(4,2)
+                6 (q) by BottomE(5)
+                //Goal: (q)
+            ),
+            7 SubProff(
+                8 Assume(q)
+            ),
+            9 (q) by OrE(1, 3, 7)
+
         )
-PbC:  -------------------
-          P
 
 
---> Difference between NegI and PbC?
+        //////////////////////////////////
+Pbc
+        ( ¬¬p ) ⊢ ( p )
+        Proof(
+            1 ( ¬¬p )   by Premise,
+            2 SubProof(
+                3 Assume (!p)
+                4 (F) by NegE(3, 1) //norm, and it's negation
+                //goal: (F)
+            ),
+            5 (p) by Pbc(2)
+            //Or 
+            //5 (!!p) by NegI2   (gets you no where)
 
-///////////////////////////////////
-
-First example.
-
-I go for a walk or I get coffee
-I don't go for a walk.
-
-Conclusion?
+            //Pbc
+        )
 
 
 
-( p ∨ q, ¬p ) ⊢ ( q )
-Proof(
-    1 ( p ∨ q )     by Premise,
-    2 ( ¬p )        by Premise,
+
+        ///////////////////////////////////
 
 
+        ( ¬q → ¬p ) ⊢ ( p → q )         //not4.sc
+
+
+        //////////////////////////////////
+
+        (in-class quiz)
+
+
+        //////////////////////////////////
+
+
+        ( ¬(¬p ∨ ¬q) ) ⊢ ( p ∧ q )     //not5.sc
+
+
+
+
+        //////////////////
+
+        How do we approach proofs?
+
+        1. Write out all the premises
+        2. Extract all information from premises 
+        3. Look at what you are trying to prove (what do we look for in goal/conclusion?)
+
+            ∧ - 
+
+            ∨ - 
+
+            → - 
+
+            ¬(something) - 
+
+            just a propositional atom? 
+
+
+        After each claim - 
+
+
+
+        Inside a subproof - 
+
+
+
+        Doesn't fit a pattern or doesn't work out from above?
+
+
+
+
+        --> when do we open a subproof?
+
+
+
+
+
+        --> can we assume anything in a subproof? 
+
+
+
+        /////////////////////////////////
+
+        HW 4.
+
+        #1: p ∨ q, p → a ∨ b, q → a ∨ b, a → c, b → c ⊢ c
+            first step?
+
+SubProof(
 )
+OrE with p || q to get p
+ImplyE a with p
+EmplyE c with a
+
+or
+
+OrE with p|q
+SubProof, Assume(p)
+get a|b
+OrE with a |b to get C
+
+        #2: (p → q) ∨ (p → r) ⊢ p → q ∨ r
+            first step?
+ImplyI subProof 
+    Assume P
+    OrE subproof on premise to get q | r
 
 
-//////////////////////////////////
-
-( ¬¬p ) ⊢ ( p )
-Proof(
-    1 ( ¬¬p )   by Premise,
-
-
-)
-
-
-
-
-///////////////////////////////////
-
-
-( ¬q → ¬p ) ⊢ ( p → q )         //not4.sc
-
-
-//////////////////////////////////
-
-(in-class quiz)
-
-
-//////////////////////////////////
-
-
-( ¬(¬p ∨ ¬q) ) ⊢ ( p ∧ q )     //not5.sc
+        #3: p ∧ q → r ⊢ p → (q → r)
+            first step?
+ImplyI subproof
+    assume(p)
+    goal: q __>: r
+    ImplyI subproof
 
 
 
-
-//////////////////
-
-How do we approach proofs?
-
-1. Write out all the premises
-2. Extract all information from premises 
-3. Look at what you are trying to prove (what do we look for in goal/conclusion?)
-
-    ∧ - 
-
-    ∨ - 
-
-    → - 
-
-    ¬(something) - 
-
-    just a propositional atom? 
-
-
-After each claim - 
+        #4: ¬(p ∨ q) ⊢ ¬p ∧ ¬q
+            first step?
+DeMorgan's law
 
 
 
-Inside a subproof - 
+        #5: p → a ∨ b, a → d, q → ¬b, p ∧ q ⊢ d
+            first step?
+(p)
+get a | b
+SubProof(Assume a)
+SubProof(Assume b, (F), BottomE)
 
 
+        (we'll quickly discuss #6/#7 next Tuesday)
 
-Doesn't fit a pattern or doesn't work out from above?
+        /////////////////////////////////
 
-
-
-
---> when do we open a subproof?
-
-
-
-
-
---> can we assume anything in a subproof? 
-
-
-
-/////////////////////////////////
-
-HW 4.
-
-#1: p ∨ q, p → a ∨ b, q → a ∨ b, a → c, b → c ⊢ c
-    first step?
-
-
-#2: (p → q) ∨ (p → r) ⊢ p → q ∨ r
-    first step?
-
-#3: p ∧ q → r ⊢ p → (q → r)
-    first step?
-
-#4: ¬(p ∨ q) ⊢ ¬p ∧ ¬q
-    first step?
-
-
-#5: p → a ∨ b, a → d, q → ¬b, p ∧ q ⊢ d
-    first step?
-
-
-
-(we'll quickly discuss #6/#7 next Tuesday)
-
-/////////////////////////////////
-
-Next time:
-- putting everything together
-- proving theorems with deduction
-- soundness and completeness
-- proving equivalence
-- begin sets
+        Next time:
+        - putting everything together
+        - proving theorems with deduction
+        - soundness and completeness
+        - proving equivalence
+        - begin sets
