@@ -210,7 +210,7 @@ SubProof(
 )
 OrE with p || q to get p
 ImplyE a with p
-EmplyE c with a
+ImplyE c with a
 
 or
 

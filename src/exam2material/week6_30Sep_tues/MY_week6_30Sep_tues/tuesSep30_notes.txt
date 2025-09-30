@@ -44,25 +44,31 @@ How do we approach proofs?
 
 1. Write out all the premises
 2. Extract all information from premises 
+    And statement
+    maybe implies
 3. Look at what you are trying to prove (what do we look for in goal/conclusion?)
 
-    ∧ - 
+    ∧ - try to prove both side seperately
 
-    ∨ - 
+    ∨ - try to prove one side (OrI)
+        If or statement in premise, then use OrE
+    → - Open ImplyI subproof Assume if as true
 
-    → - 
+    ¬(something) - Open NegI subproof. Goal contradiction
 
-    ¬(something) - 
-
-    just a propositional atom? 
-
+    trying to get a propositional atom? 
+        find where it appears in a premise or claim. 
+            Think about how you can extract it
+        If nothing works use PbC
 
 After each claim - 
-
+    See if there's anything new to extract
+    or anything new to conclude
 
 
 Inside a subproof - 
-
+    1. Your goal
+    2. Your conclusion at the end of the subproof (OrE, NegI, ImplyI, PbC)
 
 
 Doesn't fit a pattern or doesn't work out from above?
@@ -77,7 +83,7 @@ Doesn't fit a pattern or doesn't work out from above?
 
 
 --> can we assume anything in a subproof? 
-
+    Yes, but you can only end a subproof with one of the 4 rules
 
 
 //////////////////////////////////
@@ -131,13 +137,14 @@ COMPLETENESS: everything that is true is provable
 
 
 
---> what would it mean if a proof system was unsound?
 
+--> what would it mean if a proof system was unsound?
+Prove things that aren't true
 
 
 
 --> what would it mean if a proof system was incomplete?
-
+A true arguement that isn't unable to be proven with my proof system
 
 
 
@@ -165,7 +172,7 @@ A set is an unordered collection of elements
 
 
 {1,1,3,5,7} = {1,3,5,7} = {7,3,1,5}
-
+//Duplicates don't matter
 
 
 ∈: is in, exists in
@@ -178,53 +185,56 @@ A set is an unordered collection of elements
 
 Example: A = {1,4,7,11,20}
 
-    1 ? 
-    2 ?
+    1 ∈ A
+    2 ∉ A
 
 
 
 - Common sets in math:
 
-    ℕ: 
-    ℤ: 
-    ℚ: 
-    ℝ: 
-    ℂ: 
-    ∅: 
+    ℕ: natural (pos integers) numbers
+        1, 2, 3, ...
+    ℤ: All integers
+        -1, 0, 1, ...
+    ℚ: rational (p/q where p && q ∈ Z and q != 0)
+    ℝ: real numbers (decimals)
+    ℂ: Complex numbers
+    ∅: empty set
 
 ℕ ⊂ ℤ ⊂ ℚ ⊂ ℝ ⊂ ℂ
-
+⊂ (Subset of...)
 ////////////////////////////////////
 
 Set builder notation.
 
 : means, where, such that
 | means the same thing
+: == |
 
 {variable : conditions}
 
 
 {x: x ∈ ℕ, 5 ≤ x ≤ 10}
-
+{5, 6, 7, 8, 9, 10}
 
 
 {k : k is a letter in "abracadabra"}
-
+k = {a, b, r, c, d}
 
 
 
 {x : x = 2k,  k ∈ ℕ}
-
+{2, 4, 6, 8, 10, ...}
 
 
 
 {n : n = k^2, k ∈ Z}
-
+{0, 1, 4, 9, 16, 25, 36, 49, 64, ...}
 
 
 
 {n : n = 3a + 1, a ∈ ℕ, 1 ≤ a ≤ 4}
-
+{4, 7, 10, 13}
 
 
 //////////////////////////////////////
