@@ -26,7 +26,7 @@ Reminder: set builder notation
 
 
 {x : x ∈ ℤ, x^2 <= 25}
-
+{-5, -4, -3, -2, -1, 0, 1, 2, 3, 4, 5}
 
 
 //////////////////////////////
@@ -35,18 +35,18 @@ Describe these sets in set builder notation
 
 
 {5,10,15}
+{x: x = 5t, t ∈ N, t < 4}
 
 
 
-
-{CIS 115, CIS 200, CIS 300, CIS 301}
-
+{CIS 115, CIS 116 CIS 200, CIS 300, CIS 301}
+{ x: x is in the CS preprofessional program}
 
 
 
 
 {2,4,8,16,32}
-
+{x: x 2^k, K E N, k <=5}
 
 
 
@@ -63,7 +63,7 @@ of all elements....that are in either A or B (or both),
 
 How could we express in set builder notation?
 
-A ⋃ B = ?
+A ⋃ B = { x: x E A V x E B}
 
 
 Show as a Venn diagram.
@@ -80,7 +80,7 @@ of all elements that are...in both A and B
 
 How could we express in set builder notation?
 
-A ⋂ B = ?
+A ⋂ B = {x : x E (A ^ B)}
 
 
 Show as a Venn diagram.
@@ -99,7 +99,6 @@ How could we express in set builder notation?
 
 A - B = ?
 
-
 Show as a Venn diagram.
 
 //////////////////////////////////////
@@ -111,19 +110,19 @@ B = {2,3,4,5,6,7}
 
 Find:
 
-A ⋃ B = 
-A ⋂ B = 
-A - B = 
-B - A = 
+A ⋃ B = {1, 2, 3, 4, 5, 6, 7, 10, 11, 12}
+A ⋂ B = {3, 7}
+A - B = {1, 10, 11, 12}
+B - A = {2, 4, 5, 6}
 
 
 /////////////////
 
 Draw a Venn diagram for A ⋃ (B ⋂ C)
-
+The common of BC and all of A
 
 Draw a Venn diagram for (A ⋂ B) − C
-
+AB common but no C
 
 Draw Venn diagrams for A ⋃ (B ⋂ C) and (A ⋃ B) ⋂ (A ⋃ C)
 
@@ -138,20 +137,20 @@ How does A - B relate to A ⋂ B?
 
 
 What do we know if A ⋂ B = A ⋃ B?
-
+A == B
 
 
 
 
 What do we know if A - B = A?
-
+A ⋂ B is Empty since nothing is removed from A
 
 
 
 
 
 What do we know if A - B = B - A?
-
+A - B = B - A = Empty set
 
 
 //////////////////
@@ -171,7 +170,7 @@ A = {1,3,4}
 B = {1,3,5,8}
 
 --> is A a subset of B?
-
+NO, all of A's elements aren't in B
 
 
 
@@ -182,7 +181,7 @@ A = {8,1,3}
 B = {1,3,5,8}
 
 --> is A a subset of B?
-
+Yes
 
 //////////////////////////////////
 
@@ -197,14 +196,14 @@ Quantifiers - helps describe all or some elements in a set
 Can we define that set A is a subset of set B using quantifiers?
 
 A ⊆ B means ...
-
+ ∀ x ∃ A -> x ∃ B
 
 
 
 
 How could we define that set A equals set B using quantifiers?
-
-
+A ⊆ B and B ⊆ A
+∀ x ∃ A -> x ∃ B and ∀ x ∃ B -> x ∃ A
 
 
 //////////////////////////////////////
@@ -248,12 +247,12 @@ P(x) = x ∈ ℕ ⋀ x^2 ≥ 25
 
 What are these saying? Are they true?
 
-P(2) = 
-P(-6) = 
-P(10) = 
+P(2) = False
+P(-6) = False
+P(10) = True
 
 Is 2 in A? Is -6? Is 10?
-
+10
 
 
 
@@ -282,7 +281,6 @@ r: Socrates is mortal
 p, q ⊢ r
 
 
-
 ///////////////
 
 Predicate logic:
@@ -309,11 +307,11 @@ Example:
 
 
     What is the value of C(Bob)? 
-
+False
     What is the value of C(Jill)? 
-
+True
     What is the value of C(Bob) ⋀ C(Jill)? 
-
+False
 ////////////////
 ∀ ∃     ∈ ∉     ∅ ⋂ ⋃ ⊂ ⊆   ⋀ ⋁ ¬ →     ℕ ℤ     ≠ ≤ ≥
 ////////////////
@@ -323,11 +321,11 @@ Quantifiers and predicates
 Domain: {strawberry, blueberry, banana, orange, 
             grapefruit, apple}
 
-Berry(x): x is a berry
-Citrus(x): x is a citrus fruit
-Peel(x): x has a peel (that needs to be removed before eating)
-Seeds(x): x contains inedible seeds
-Bite(x): x is bite-sized
+    Berry(x): x is a berry 
+    Citrus(x): x is a citrus fruit
+    Peel(x): x has a peel (that needs to be removed before eating)
+    Seeds(x): x contains inedible seeds
+    Bite(x): x is bite-sized
 
 Berry(strawberry) -  true
 Citrus(strawberry) - false
@@ -346,7 +344,7 @@ Write each statement in English. Is each one true or false?
     --> how could we express the same statement in our domain
     WITHOUT a quantifier?
 
-
+Berry(Strawberry) && (Blueberry) ... Berry(Apple)
 
 
 
@@ -358,23 +356,30 @@ Write each statement in English. Is each one true or false?
 
     --> how could we express the same statement in our domain
     WITHOUT a quantifier?
-
+There is a fruit that both is both citrus and has inedible seeds
+(Berry(s) && seeds(S)) || ...
 ///
 
 ∀ x (Berry(x) ⋀ Bite(x))
+every single fruits are both berries and bite sized
+False - Banana
+
 
 
 ///
 
 ∀ x (Berry(x) → Bite(x))
-
-
+All berries are bite-sized
+Berry(s) -> bite(S) && ...
+True assuming not giant strawberries
 
 
 ///
 
 ¬(∀ x Peel(x))
-
+Not all fruits have a peel
+    there exists
+    !(peel(S) && ...) turns into !Peels(s) || !Peels() ...
 
 
 
