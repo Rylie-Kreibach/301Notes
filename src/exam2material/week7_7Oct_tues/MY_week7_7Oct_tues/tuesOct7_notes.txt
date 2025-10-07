@@ -31,7 +31,7 @@ HasChocolate(PayDay) V ContainsPeanuts(KitKat)
 
     translation? 
     true or false?
-
+False
 
 ///
 Domain: Snickers, Kit Kat, Skittles, Pay Day, Starburst
@@ -39,8 +39,10 @@ Domain: Snickers, Kit Kat, Skittles, Pay Day, Starburst
 ¬(∀ x (HasChocolate(x) → ContainsPeanuts(x)))
 
     translation? 
+!(for all bars with chocolate has peanuts)
+Not all chocolate bars have peanuts
     true or false? 
-
+True
 
 
 ///
@@ -49,15 +51,18 @@ Domain: Snickers, Kit Kat, Skittles, Pay Day, Starburst
 ∀ x (¬ContainsPeanuts(x))
 
     translation? 
+All candy doesn't have peanuts
     true or false? 
-
+False
 
 ///
 Domain: Snickers, Kit Kat, Skittles, Pay Day, Starburst
 
 ¬(∃ x IsBrown(x))
 
-    translation? 
+
+    translation?
+No candy is brown.
     true or false? 
 
 ///
@@ -74,17 +79,18 @@ Domain: Snickers, Kit Kat, Skittles, Pay Day, Starburst
 ∃ x (HasChocolate(x) → ContainsPeanuts(x))
 
     translation?
+There is a candy and if that candy has chocolate, then it contains peanuts
     true or false? 
 
 
 
 ////////////////////////
 
-For all: usually connect with...→
+For all: usually connect with... →
 
 
 
-There exists: usually connect with...⋀
+There exists: usually connect with... ⋀
 
 
 
@@ -92,29 +98,31 @@ There exists: usually connect with...⋀
 
 Evaluating predicate logic statements
 
+out domain is k1 ... kn
+
 1) ∀ x P(x)
-    true when: 
-    false when: 
+    true when: p(k) is true for every k 
+    false when: when any p(k) is false
 
 2) ∃ x P(x)
-    true when: 
-    false when: 
+    true when: Where one p(k) is true
+    false when: When all p(k) is false
 
 3) ¬(∀ x P(x))
-    true when: 
-    false when: 
+    true when: One p(k) which is false
+    false when: P(k) is true for every k
 
 4) ¬(∃ x P(x))
-    true when: 
-    false when: 
+    true when:  Every k made p(k) false
+    false when: one p(k) thats true
 
 5) ∀ x ¬P(x)
-    true when: 
-    false when: 
+    true when: every p(k) is false
+    false when: Atleast one p(k) is true
 
 6) ∃ x ¬P(x)
-    true when: 
-    false when: 
+    true when: A p(k) statement is true
+    false when: All p(k) statements are false
 
 
 /////////////////
@@ -126,21 +134,26 @@ What do these mean in English? Are they true?
 
 
 ∀ n ∃ m (n^2 < m)
-
-
-
+    For all n where some m (n^2 < m)
+    The square of every integer is less than some other integer
+True
+    whatever n is choose m = n^2 + 1 and m would b bigger
 
 
 ∀ x ∃ y (x == y^2)
+    Every integer is equal to some squared integer
+    All integers are perfect squares
+False: 3 doesn't have a perfect square
 
 
 
 ∀ n ∃ m (n^2 == m)
-
+    The square of all integers is also an integer
+True
 
 
 ∃ m ∀ n (n^2 == m)
-   
+   there is one integer that equals 
 
 
 /////////////////////////
@@ -155,23 +168,33 @@ Write the following in predicate logic (Domain: ℤ):
 
 The sum of two negative integers is negative
 
+Variables: n, m
+scope: 2 Universal (ALL)
 
-
+∀ n ∀ m ((n < 0 && m < 0) -> n + m  < 0)
 
 
 
 
 The difference of two positive integers is
 not necessarily positive
-
-
-
+    ∃ n ∃ m (n>0 && m>0 && n-m <= 0)
+        or
+    !(∀ n ∀ m ((n > 0 && m > 0) -> n - m  > 0))
+true because (n=5, m=0, -15 < 0)
 
 
 
 /////////////////////////
 
 In-class quiz
+
+For all: use implies
+For some: use and
+
+!(for some x, y: 0<x^2-y^2<4)
+    Can't find a pair that is between those
+False because there is a case that makes that
 
 
 /////////////////////////
@@ -189,7 +212,7 @@ suppose our domain is k1 through kn
 
 
 ¬(∃ x P(x)) is  equivalent to...
-
+A x !p(x)
 
 /////////////////////////
 
@@ -207,7 +230,7 @@ suppose our domain is k1 through kn
 
 
 ¬(∀ x P(x)) is equivalent to...
-
+E x !p(x)
 
 
 
@@ -222,9 +245,9 @@ Apply DeMorgan's laws: example
 or outside a statement with logical connectives
 
     Reminder:
-        p → q is equivalent to (OR statement): 
-        ¬(p ⋀ q) is equivalent to: 
-        ¬(p ⋁ q) is equivalent to: 
+        p → q is equivalent to (OR statement): !p || q
+        ¬(p ⋀ q) is equivalent to: !p || !q
+        ¬(p ⋁ q) is equivalent to: !p && !q
 
 ///
 Domain: students
@@ -241,8 +264,12 @@ Domain: students
 All prize-winners were 5th graders
 
 Translation: 
+∀ x (prize(x) -> 5thgr(x))
 
 Negation: 
+    !(∀ x (prize(x) -> 5thgr(x)))
+    E x !(!prize(x) || 5thgr(x))
+E x (prize(x) && !5thgr(x))
 
 Translation of negation: 
 
@@ -251,10 +278,16 @@ Translation of negation:
 A 5th grade prize winner isn't friends with anyone
 
 translation: 
+E x A y (5thgr(x) && prize(x) && !friends(x, y))
 
 negate: 
+    !(E x A y (5thgr(x) && prize(x) && !friends(x, y)))
+    A x E y !(5thgr(x) && prize(x) && !friends(x, y))
+    A x E y ( !(5th(x) && prize(x)) || friends(x, y))
+A x E y ( 5th(x) && prize(x) -> friends(x, y))
 
 translation of negation: 
+All 5th grade prize winners are friends with someone
 
 ////////////////////////////////////
 
