@@ -67,6 +67,8 @@ Premises: ∀ x (P(x) → Q(x)), ∃ x P(x)
 Conclusion: ∃ x Q(x)
 
 Valid or not? 
+valid
+    because for some p then there's a q
 
 
 ///
@@ -75,12 +77,16 @@ Premises: ∀ x P(x) : everyone in my domain is P-ish
 Conclusion: ∃ x P(x): there is someone in domain who is P-ish
 
 Valid or not? 
+Invalid
+    Empty domain
 
 /////////////////////////////////
 
 soundness ?
+    All arguemnt proved with deduction were also true
 
 completeness ?
+    All true statements can be proved
 
 /////////////////////////////////
 
@@ -103,7 +109,7 @@ Writing predicate logic statements in Logika
 In Logika, ∀ x P(x) is written as:
 
     ∀ ((x: T) => P(x))
-
+        t is the domain
 T is our domain
 
 
@@ -114,7 +120,7 @@ In Logika, ∃ x P(x) is written as:
 
 
 --> what is "T"?
-
+The domain
 
 Settings->Command Palette->Tasks (run task)->Sireum slang template->
     Insert a for-all quantification
@@ -176,6 +182,10 @@ our domain
 ...then what would we know about a specific individual
 in that domain?
 
+
+
+AllE[]() : Plugging in one variable in the domain to extract the statement
+
 ///////////////////////////////
 
 Syntax:
@@ -219,16 +229,16 @@ First: consider these two statements:
 
 are they equivalent?
     ∀ x (P(x) ⋀ Q(x))  - translation?
-
+Everyone is P and Q
 
 
     (∀ x P(x)) ⋀ (∀ x Q(x)) - translation?
-
+Everyone is P and Q
 
 
 
 how would we defend our position? 
-
+2 proofs 
 
 
 //////////////////////////////////

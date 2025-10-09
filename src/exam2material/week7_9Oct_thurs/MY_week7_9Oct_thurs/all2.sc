@@ -55,7 +55,21 @@ import org.sireum.justification.natded.prop._
     )
     Proof(
       1 (  ∀((x: T) => P(x)) & ∀((x: T) => Q(x))  ) by Premise,
-      
+      2 (∀((x: T) => P(x)) ) by AndE1(1),
+      3 (∀((x: T) => Q(x)) ) by AndE2(1),
+      4 Let ((a: T) => SubProof(
+        5 (P(a)) by AllE[T](2),
+        6 (Q(a)) by AllE[T](3),
+        7 (P(a) & Q(a)) by AndI(5, 6)
+        //Goal: P(a) & Q(a)
+      )),
+      8 (∀((x: T) => (P(x) & Q(x)))) by AllI[T](4)
+      //AllI to conclude: ∀((x: T) => (P(x) & Q(x)))
+
+      //Left gear, command pallet, run tasks, sireum slang template, for all quantifier
+      //∀((ID: TYPE) => CLAIM)
+
+      //Or gear, keyboard shortcuts
     )
   )
 }
