@@ -11,6 +11,10 @@ HW 5 comments:
 
 4. {x : x ∈ ℤ, x ≥ -5} ∪ {x : x ∈ ℤ, x ≤ 7}
 
+all integers 
+ℤ
+
+ℤ
 
 
 
@@ -18,22 +22,70 @@ HW 5 comments:
 What does that tell us about A and B?
 
     Common mistake:
+        B is the empty set
+        B = A
+    
+    Answer: B is a subset of A 
+
 
 
 6. Suppose A ⋂ B = A for two sets A and B.
 What does that tell us about A and B?
 
     Common mistake:
+        A = B 
+    
+    Answer: A is a subset of B
 
 
 
 7 (a). If A ⋃ C = B ⋃ C, must A = B?
 
+Bad counterexample:
+    A = {4}
+    B = {2}
+    C = {1,2,3}
 
+A ⋃ C = {1,2,3,4}
+B ⋃ C = {1,2,3}
 
+Good counterexample:
+    A = {4}
+    B = {}
+    C = {4}
+
+A ⋃ C = {4}
+B ⋃ C = {4}
+
+The unions are the same but A does not equal B (we broke our promise).
 
 
 7 (b). If A ⋂ C = B ⋂ C, must A = B?
+
+Want counterexample, need A ⋂ C = B ⋂ C to be true
+but A not equal to B.
+
+A = {1}
+B = {2}
+C = {3}
+
+Here, the intersections are both the empty set but A doesn't equal B.
+
+
+Predicates, #5:
+
+¬(∀ x (InKS(x) → ¬Campus(x)))
+
+translation:
+    Not all students who are KS residents don't live on campus
+
+counterexample: 
+    true. Just need ONE student to demonstrate that the promise 
+        wasn't always true
+
+        find a student who is KS resident but lives on campus
+        Ava.
+
 
 
 ////////////////////
@@ -50,11 +102,11 @@ Arguments in predicate logic
 Set of premises
 Conclusion
 
-Argument is VALID: regardless of domain,
+Argument is VALID in general: regardless of domain,
     whenever all the premises are true,
     then the conclusion is also true
 
-Argument is INVALID: we can find a domain where
+Argument is INVALID in general: we can find a domain where
     all the premises are true but the conclusion is false
 
 
@@ -66,7 +118,7 @@ Examples -- are the following arguments valid?
 Premises: ∀ x (P(x) → Q(x)), ∃ x P(x)
 Conclusion: ∃ x Q(x)
 
-Valid or not? 
+Valid or not? yes. Whoever my P is is, that individual will also be Q
 
 
 ///
@@ -74,13 +126,17 @@ Valid or not?
 Premises: ∀ x P(x) : everyone in my domain is P-ish
 Conclusion: ∃ x P(x): there is someone in domain who is P-ish
 
-Valid or not? 
+Valid or not? invalid. Not true for an empty domain. 
 
 /////////////////////////////////
 
 soundness ?
+    all arguments proved with deduction were actually true 
 
 completeness ?
+    all true arguments can be proved with deduction 
+
+predicate logic will be incomplete
 
 /////////////////////////////////
 
@@ -104,7 +160,7 @@ In Logika, ∀ x P(x) is written as:
 
     ∀ ((x: T) => P(x))
 
-T is our domain
+
 
 
 In Logika, ∃ x P(x) is written as:
@@ -113,7 +169,7 @@ In Logika, ∃ x P(x) is written as:
 
 
 
---> what is "T"?
+--> what is "T"? my domain 
 
 
 Settings->Command Palette->Tasks (run task)->Sireum slang template->
@@ -219,15 +275,18 @@ First: consider these two statements:
 
 are they equivalent?
     ∀ x (P(x) ⋀ Q(x))  - translation?
+        Everyone is both is both P and Q
 
 
 
     (∀ x P(x)) ⋀ (∀ x Q(x)) - translation?
+        Everyone is P and everyone is Q
 
 
 
 
 how would we defend our position? 
+    two proofs 
 
 
 
@@ -296,6 +355,9 @@ Are these statements equivalent?
 ∀ x (P(x) ⋁ Q(x))           (∀ x P(x)) ⋁ (∀ x Q(x))
 
 
+//////////////////////////////////////////
+
+<--- stopped here, will continue on Tuesday
 
 ////////////////////////////////////////
 

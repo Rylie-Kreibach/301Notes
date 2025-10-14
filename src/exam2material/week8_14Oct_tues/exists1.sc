@@ -18,5 +18,6 @@ import org.sireum.justification.natded.prop._
     Proof(
       1 ( ∀ ((x: T) => (Human(x) __>: Mortal(x))) ) by Premise,
       2 ( Human(Socrates) ) by Premise,
+      
   )
 }
