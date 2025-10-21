@@ -19,11 +19,15 @@ Reminder:
 
 AllE - use when we have a specific individual, can plug into 
     any for all statement
+Need a for all statement
 
 AllI - subproof (starts with "Let"), choosing random individual
     end subproof with a statement about our random individual
     right after subproof ends, claim same statement about All
     individuals
+Let((i: T) SubProof(
+    Let: a random individual in the domain
+))
 
 ////////////////////////
 
