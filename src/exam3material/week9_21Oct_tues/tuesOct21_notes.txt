@@ -1,13 +1,13 @@
 Exam 2 discussion.
 
-High: ?/100 
-Average: ?/100
+High: 99/100 
+Average: 77/100 (before adding 0s for students who didn't take it)
 
-A (90-100): ? students
-B (80-89): ? students
-C (70-79): ? students
-D (60-69): ? students
-F (below 60): ? students
+A (90-100): 23 students
+B (80-89): 19 students
+C (70-79): 12 students
+D (60-69): 14 students
+F (below 60): 12 students (includes several 0s who didn't take it)
 
 Briefly discuss exam.
 
@@ -98,9 +98,10 @@ x is students
 
     --> what is this argument saying?
 
-∀ x (P(x) → ¬Q(x)): ?
+∀ x (P(x) → ¬Q(x)): All students who attend K-State don't attend KU
 
-¬(∃ x (P(x) ^ Q(x))): ?
+¬(∃ x (P(x) ^ Q(x))): There does not exist a student who
+                        attends both K-State and KU
 
 
 ////////////////////////////
@@ -114,21 +115,34 @@ Proof tactics for predicate logic
 - see if you can do anything right away with the premises
     Which rules? 
 
+    AndE1, AndE2
+    (maaaaaybe OrI1 or OrI2, but usually not helpful)
+    AndI (maybe, only if helpful)
+    ImplyE (if we have the left side of an implies already)
+    AllE if I have an All statement and an individual
+    ExistsI if I have a statement about an individual (if helpful)
+
 - look at top-level operator for what you are trying to prove
     trying to prove a "for all" statement with ∀?
 
+    use AllI
 
     trying to prove a "there exists" statement with ∃?
 
         do I have that statement about a particular individual?
+            use ExistsI
 
         could I use AllE for an individual with an all statement?
 
+
         do I have a "there exists" statement as a claim?
+            use ExistsE 
 
         do I have an OR statement as a claim?
+            try OrE
 
         really can't find anything? 
+            try PbC
 
 
     trying to prove -> 
@@ -157,6 +171,9 @@ Proof tactics for predicate logic
 
     Unsure what to do?
 
+////////////////////////////////////////
+
+<-- stopped here, will continue Thursday
 
 ////////////////////////////////////////
 
@@ -219,7 +236,7 @@ Any consistent formal system where integer arithmetic is
 carried out is incomplete -- there will be true statements
 that cannot be proved.
 
-(depends on interpretations)
+(depends on domains/interpretations)
 
 /////////////////////
 

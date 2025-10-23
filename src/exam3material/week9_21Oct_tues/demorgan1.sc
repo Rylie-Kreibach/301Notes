@@ -19,7 +19,7 @@ import org.sireum.justification.natded.prop._
     )
     Proof(
       1 ( ∀((x: T) => !P(x)) ) by Premise,
-
+      //similar to exists2
     )
   )
 }
@@ -35,7 +35,7 @@ import org.sireum.justification.natded.prop._
     )
     Proof(
       1 (  !(∃((x: T) => P(x)))   ) by Premise,
-      
+      //we have proved this before
     )
   )
 }
