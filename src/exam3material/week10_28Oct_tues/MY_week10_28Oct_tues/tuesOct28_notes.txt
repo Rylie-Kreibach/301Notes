@@ -1,0 +1,345 @@
+HW 7 due tonight
+
+#5, if n is a positive integer, then
+    n^5 - n is divisible by 5
+
+
+exists an integer k that
+5k = x
+or 5(something) + 5(something)
+
+
+#6, if n is natural number, then:
+
+    1*1! + 2*2! + ... + n*n! = (n+1)! - 1
+
+
+--> what would inductive hypothesis be?
+
+
+
+--> what would we be trying to prove?
+
+
+
+--> how can we express (n+1)!  ?
+    (n+2)!  ?
+
+
+
+--> how can we rewrite  k*(k+1)! + (k+2)!   ?
+
+
+
+
+
+HW 8 will be posted after class
+
+///////////////////////
+
+Today:
+- Continue mathematical induction
+- Recursive definitions
+- Begin survey of proof techniques
+
+////////////////////////////////////////////
+Induction domino effect (We assume it's true)
+( P(1) ∧ ∀ k (P(k) → P(k+1)) ) → ∀ n P(n) 
+P(1): Base Case
+∀ k (P(k) → P(k+1)): Inductive step
+    Picked a random individual, such as fixed k in the domain
+    Assume our claim k holds and true to get k+1
+∀ n P(n): Claim is true for all elements in the domain
+
+
+English translation?
+
+///////////////////////
+
+Example: Prove that the sum of the first n odd numbers is n^2.
+
+    (what is our domain?)
+Natural numbers
+
+How can we express the sum of the first n odd numbers more formally?
+
+1 + 3 + 5 ...+ nth odd = n^2
+
+So, what is our claim?
+
+1 + 2 + 5 ... + 2n-1 = n^2
+
+Proof by induction.
+Base Case: We must prove the case holds for the smallest possible number: n = 1
+    2*1 - 1 = 1^2
+    1 = 1
+Inductive Step: 
+    We assume the inductive hypothesis where 1 + ... + 2k-1 = k^2 for some fixed natural number k.
+        1 + ... + 2k-1 = k^2
+    We must prove that the case holds for (k+1) 
+        Prove: 1 + ... + 2k-1 + 2(k+1)-1 = (k+1)^2
+        k^2 + 2(k+1)-1 = (k+1)^2
+        k^2 +2k+2-1 = (k+1)^2
+        k^2 +2k+1 = (k+1)^2
+        (k+1)^2 = (k+1)^2
+Summary: We have shown with induction that 1 + ... + 2n-1 = n^2 holds for all natural numbers
+
+
+////////////////////////////////
+
+Example: prove that for all nonnegative integers n:
+    2^0 + 2^1 + ... + 2^n = 2^(n+1) - 1
+
+Base case:
+    We must prove that the claim holds for the smallest natural number: n = 0
+        2^0 = 2^(0+1) - 1
+        1 = 1
+Inductive Step:
+    We assume the inductive hypothesis where 2^0 + 2^1 + ... + 2^k = 2^(k+1) - 1 is true for some fixed natural number k
+        2^0 + 2^1 + ... + 2^k = 2^(k+1) - 1
+    We must prove that the hypothesis holds for k+1 to
+        Prove: 2^0 + 2^1 + ... + 2^k  + 2^(k+1)= 2^((k+1)+1) - 1
+        2^(k+1) - 1 + 2^(k+1)= 2^((k+1)+1) - 1
+        2*2(k+1) - 1 = 2^(k+2) - 1
+        2(k+2) - 1 = 2^(k+2) - 1
+Summary: We have proven that  2^0 + 2^1 + ... + 2^n = 2^(n+1) - 1 holds for all natural numbers
+
+
+/////////////////////////////////
+
+Recursively defined functions.
+
+
+To define a function whose domain is the set of natural numbers
+(or some other set of integers with a lowest value)
+
+Base case: Specify the value of the function at 1 (or some other
+    lowest value). (There may be more than one base case.)
+
+
+Recursive step: Give a rule for finding the value of the function
+    at all bigger integers in our domain using its smaller values
+
+
+
+
+//////////////////////////////////
+
+Example (domain: all natural numbers, 1 and up):
+
+f(1) = 3
+f(n) = 2f(n-1) + 3, for n > 1
+
+
+What is f(3)?
+f(3) = 2f(3-1) + 3
+f(3) = 2f(2) + 3
+    f(2) = 2f(1) + 3
+    f(2) = 2 * 3 + 3
+    f(2) = 9
+f(3) = 2 * 9 + 3
+f(3) = 21
+
+
+
+//////////////////////////////////
+
+What does this define? (domain: natural numbers)
+
+g(1) = 1
+g(n) = n * g(n-1), for n > 1
+
+n  | g(n)
+---------
+1  | 1
+2  | 2  = 2 * 1
+3  | 6  = 3 * 2
+4  | 24 = 4 * 6
+Factoral recursive definition
+
+
+
+
+
+//////////////////////////////////
+
+Consider this pattern: 1, 2, 4, 7, 11, 16, 22, ...
+
+Write a recursive definition.
+
+Over natural numbers.
+
+Base case?
+Recursive case?
+
+
+
+n | f(n)
+-----------------
+1 | 1
+2 | 2
+3 | 4
+4 | 7
+
+f(1) = 1
+f(n) = (n-1) + f(n-1), for n > 1
+
+
+
+////////////////////////////////
+
+Recursively defined sets:
+
+
+Consider the subset S of the set of integers, defined as:
+
+Base case: 1, 2 ∈ S
+
+Recursive case: x ∈ S ⋀ y ∈ S → xy ∈ S
+if x and y are in the set then their product is in the set
+--> what are the elements in S?
+{1, 2}
+x = 2, y = 2 so 4
+    then you can pick x = 4 y = 2 so 8
+    and you can pick x = 4 y = 4 so 16
+    ...
+
+Set Builder notation
+{x : x = 2^k, k ∈ Z, k >= 0}
+
+
+
+
+///////////////////////////////
+
+Write a recursive definition for the set S = {1, 3, 5, 7, ...}
+Base Case: 1 ∈ S
+Recursive Step: if x ∈ S __>: x + 2 ∈ S
+
+
+////////////////////////////////
+
+(in-class quiz)
+
+
+////////////////////////////////
+
+∀ ∃     ∈ ∉     ∅ ⋂ ⋃ ⊂ ⊆   ⋀ ⋁ ¬ →     ℕ ℤ     ≠ ≤ ≥
+
+/////////////////////////////////
+
+Now we will look at more informal proofs.
+
+--> why? (prove programs are correct, prove running time,
+    prove systems are secure, make inferences, prove specifications
+    are consistent, etc.)
+
+///////////////////////////////
+
+Definitions.
+
+
+An integer n is *even* if n = 2k for some k ∈ ℤ.
+
+
+
+An integer n is *odd* if n = 2k + 1 for some k ∈ ℤ.
+
+
+
+Any integer that is not odd is even,
+and any integer that is not even is odd.
+
+
+///////////////////////////////
+
+Direct (conditional) proof
+
+
+- Often want to prove things of the form: "If P, then Q"
+
+--> how would we do this with natural deduction?
+
+Assume P
+...
+Goal: Q
+
+
+
+/////////////////////////////
+
+Direct proof template. If P, then Q
+
+Assume P
+...
+Goal: Q
+
+
+
+
+
+/////////////////////////////
+
+Example: prove that the product of two even integers is even.
+
+
+If our domain is integers and we have the predicate Even(x), how
+would you write this statement in predicate logic?
+
+∀ x ∀ y (Even(x) & Even(y) -> Even(xy))
+
+
+
+What's the idea of proving this in predicate logic?
+
+Pick A random indiv1
+Pick another random indiv2
+Assume indiv1 is even and indiv2 is even
+...
+Want to show indiv1*indiv2 is even
+
+
+
+Direct proof:
+Let n and m be even integers.
+    If n is even, then there exists an integer k such that 2k = n
+    If m is even, then there exists an integer j such that 2j = m
+We have:
+    nm = (2k)(2j)
+    nm = 2(2kj)
+Thus: nm = 2a where a is the integer 2kj
+
+
+
+
+--> How is our proof similar to natural deduction?
+
+////////////////////////////////
+
+Example.
+
+The square of any odd integer is odd.
+
+How can we write this in predicate logic?
+∀ x (Odd(x) -> Odd(x^2))
+
+
+Direct proof:
+Let p be odd integers
+    If n is odd, then there exists an integer k such that 2k + 1 = p
+We have
+    n^2 = (2k+1)^2
+    n^2 = 4k^2 + 4k + 1
+    n^2 = 2(2k^2 + 2k) + 1
+Thus:
+    n^2 = 2a + 1 where a is the integer 2k^2 + 2k 
+    so n^2 is odd
+
+////////////////////////////////
+
+∀ ∃     ∈ ∉     ∅ ⋂ ⋃ ⊂ ⊆   ⋀ ⋁ ¬ →     ℕ ℤ     ≠ ≤ ≥
+
+/////////////////////////////////
+
+Next time:
+- More proof techniques
