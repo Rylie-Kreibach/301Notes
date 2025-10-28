@@ -113,29 +113,35 @@ Proof tactics for predicate logic
 
 - see if you can do anything right away with the premises
     Which rules? 
+AndE1, AndE2, AndI, OrI1, OrI2, ImplyE, AllE, ExistsI
+
 
 - look at top-level operator for what you are trying to prove
     trying to prove a "for all" statement with ∀?
-
+AllI
 
     trying to prove a "there exists" statement with ∃?
 
         do I have that statement about a particular individual?
+ExistsI
 
         could I use AllE for an individual with an all statement?
 
+
         do I have a "there exists" statement as a claim?
+ExistsE
 
         do I have an OR statement as a claim?
+OrE
 
         really can't find anything? 
-
+PbC
 
     trying to prove -> 
 
 
     trying to prove ¬(something)
-
+NegI
 
 
     trying to prove an OR

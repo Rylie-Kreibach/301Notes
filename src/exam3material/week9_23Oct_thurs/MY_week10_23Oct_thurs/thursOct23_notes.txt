@@ -19,19 +19,23 @@ Soundness and completeness of predicate logic.
 
 
 Soundness: definition?
+Everything we can prove is true
 
-    propositional:
-
-    predicate logic:
+    propositional: yes
+    predicate logic: yes
 
 
 
 
 Completeness: definition?
+Things that are true can be proved using our proof system
 
-    propositional:
-
-    predicate logic:
+    propositional: yes
+    predicate logic: No(Not complete)
+        Premise: All x P(x)
+        Conclusion: Exists x P(x)
+            Not true when the domain is empty
+            Can't be proved with a proof system
 
 
 
@@ -46,10 +50,12 @@ Same argument might be VALID in one domain and INVALID in another
 Domain with integers with operations like +
 
 
-All integers? 2 + 3 = ?
+All integers? 2 + 3 = ? 
+    5
 
 
 Subset (0,1,2,3,4) of integers. 2 + 3 = ?
+    0 (Overflow; wrap around 0 1 2 3 4 0)
 
 
 
@@ -80,11 +86,13 @@ We want to prove that for any positive integer n:
 
 Try it out first.
     n = 1?
+        1
 
     n = 2?
+        3
 
     n = 3?
-
+        6
 
 Have we proved it yet?
 
@@ -100,15 +108,28 @@ Tool for proving some claim P(n) holds for all natural numbers n
 
 The induction domino effect:
 
-    ( P(1) ∧ ∀ k (P(k) → P(k+1)) ) → ∀ n P(n) 
+    ( P(1) ∧ (∀ k (P(k) → P(k+1))) ) → ∀ n P(n) 
 
 
 
 
 What is this saying?
     P(1)? 
+        Prove that claim is true for n = 1
+        Tips the first item in the domain
 
     ∀ k (P(k) → P(k+1))? 
+        For all natural number k that hold than we have k+1
+        For an item that falls the next one falls
+
+        Pick a random individual in the domain(k or something)
+            Assume P(k)
+            then P(k+1)
+            Introduce All
+
+
+    ∀ n (P(n))?
+        All items
 
 
 
@@ -119,6 +140,8 @@ Putting it all together:
 
 
 English translation?
+    If you can start and show you are tipping the next one 
+        then you can prove that all of them tip over
 
 
 
@@ -138,7 +161,21 @@ We want to prove that for any positive integer n:
 
 
 Proof by induction.
-
+    Base Case: 1
+        We must prove that our claim holds for the first item in the domain: 1
+        1 = 1*(1+2)/2
+        The Base Case holds
+    We assume the inductive hypothesis: that our claim holds for some fixed positive integer k.
+    Inductive Hypothesis: We need to prove the claim holds for k + 1
+    If the claim holds for k then we have: 1 + 2 ... +k = k(k+1)/2
+    Inductive Step: To prove the claim holds for k+1:
+        1+2...+ k + (k+1) = (k+1)((k+1)+1)/2     //Without the introduction. We're stating this as true rather than something TO prove
+            k(k+1)/2 + (k+1) = (k+1)((k+1)+1)/2  //we know 1+2...k is true so switch that out
+            ( k(k+1) + 2(k+1) )2 = (k+1)((k+1)+1)/2
+            ( (k+1)k+2 )/2 = (k+1)((k+1)+1)/2
+            ( (k+1)k+2 )/2 = (k+1)((k+1)+1)/2
+            (k+1)((k+1)+1 )/2 = (k+1)((k+1)+1 )/2
+    We have shown that our induction holds for any k
 
 
 /////////////////////////////////
@@ -149,19 +186,29 @@ Proof by induction.
 
 Do you think induction can be used to prove properties for
     ALL integers?
-
+        NO!
+            Need a Base case (Smallest value)
+                Can be Negative but needs to be a finite value
 
 /////////////////////////////////
 
 Induction template.
 
-1) 
+1) Base Case
+    Prove the claim is true for the smallest item in the domain
 
 
-2) 
+2) Inductive Hypothesis: Assume true the inductive hypothesis: 
+    k (Or some random item in the domain)
+    That <claim> holds true for some fixed k in <domain>
 
 
-3) 
+3) Inductive Step: Prove k+1 
+
+
+4) Summary: It folls by induction the <claim> holds for all <domain>
+
+
 
 /////////////////////////////////
 
@@ -187,10 +234,33 @@ Example: Prove that 3^n - 1 is even for all positive integers n.
 
 
 what does "even" mean? 
-
+    Number k is even if some int <a> such that k = 2a
 
 
 Proof by induction.
+    Base Case: 
+        Prove our claim holds for the smallest possible integer: n = 1
+            3^1 - 1 = 2
+            3 - 1 = 2
+            Becuase 2 = 2*1 we know 2 is even
+    Inductive Step: We assume the inductive hypothesis: 3^k - 1 is even for some positive integer k. 
+    We must show 3^k - 1 is even
+    K:
+        If 3^k - 1 is even, then there exists some integer a such 2a = k
+        For all k 3^k - 1 = Exists some a 2a
+        3^k - 1 = 2a
+    K+1:
+        3^(k+1) - 1 
+        3(3^k) - 1 
+        3(3^k - 1) - 1 + 3 
+        3( 2a ) + 2  //We know 3^k - 1 == 2a from Inductive step
+        6a + 2
+        2( 3a + 1) = 2i
+    Thus 3^(k+1) is even since ( 3a + 1) is an integers
+
+    Summary: 
+        We have shown with induction that 3^n - 1 is even for all positive integers n.
+
 
 
 
@@ -200,15 +270,44 @@ Bad induction, example 1.
 
 Use induction to prove that in any nonempty set of n horses, all horses are the same color.
 
+Base Case: 
+    I have a one horse. 
+    All horses are the same color since there's only one.
+Inductive set: 
+    K:
+        We assume the inductive hypothesis is true that 
+        for some fixed positive integer k that all horses have the same color
+        We must prove that for k+1 the claim holds.
+    k+1:
+        Exclude the first horse, so we have k horses left. 
+            We know those k horses have all the same colors
+        If we exclude the last horse, we have k horses left.
+            We know k horses have all the same colors
+        So, we assume that k+1 is all horses.
+FALSE!!!!!!!!!!!!!
+    (They don't overlap. You can't assume anything about that new horse)
+
 
 //////////////////////////////////
 
-Bad induction, example 1.
+Bad induction, example 2.
 
 
 Use induction to prove that 8n+3 is even for all positive integers n.
 
 (What happens when we skip the base case?)
+The Base case is wrong: So we'd waste time and maybe prove something incorrect
+
+Inductive Step:
+    We assume inductive Hypothesis: 8k+3 is even for some fixed postive integer k.
+    We must prove 8(k+1) + 3 is even 
+
+    If 8k+3 is even  then some positive int a 8k+3=2a
+        9(k+1) + 3
+        8k + 8 + 3
+        2a + 8 //8k+3=2a
+        2(a+4)
+
 
 
 ////////////////////////////////////
