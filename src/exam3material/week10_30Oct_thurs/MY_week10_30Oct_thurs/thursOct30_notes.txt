@@ -14,6 +14,17 @@ Example (review).
 
 The sum of two odd numbers is even.
 
+if we have two odd numbers, then the sum is even
+
+Let x and y be odd integers.
+    if x is odd, then x = 2a + 1 for some integer a
+    if y is odd, then y = 2b + 1 for some integer b
+
+Consider x+y
+    x + y = (2a+1)+(2b+1)
+    x + y = (2a+2b+2)
+    x + y = 2(a+b+1)
+Thus x + y = 2i where i is integer(a+b+1)
 
 
 ////////////////////////////////
@@ -27,12 +38,15 @@ Proof by contrapositive
 
 What is the contrapositive of P → Q?
 
-
+!Q -> !P
 
 
 
 Proof by contrapositive template:
-
+Assume !Q
+...
+!P
+ImplyI()
 
 
 
@@ -43,22 +57,34 @@ Example (contrapositive)
 If x^2 is odd for an integer x, then x is odd.
 
 Think of as P → Q
-    P: ? 
-    Q: ? 
+    P: ? x^2 is odd for an integer x
+    Q: ? x is odd
 
 Contrapositive? 
-
+If some integer x is even, then x^2 is even.
+!Q -> !P
 
 
 
 Try direct proof first.
+    If x^2 is odd for an integer x, then x is odd.
+        Assume( n^2 is odd ) then n^2 = 2k+1
+        n = sqrt(2k+1)
+            no good way to show that's odd
+        Stuck!!!
 
-
+        Goal: n = 2a+1
 
 
 
 Now try contrapositive proof.
+If some integer x is even, then x^2 is even.
+//Using contrapositive
 
+Assume n = 2a for some int a
+    n^2 = (2k)^2
+    n^2 = 4k^2
+    n^2 = 2(2k^2)
 
 --> best to indicate in proof that you are using contrapositive
 
@@ -73,19 +99,28 @@ We want to "prove" that 1 = 2.
 Let a and b be two equal positive integers. We have that:
 
     1) a = b                    (reason?)
+        Picked them to be equal
 
     2) a^2 = ab                 (reason?)
+        multiply both sides by a
 
     3) a^2 - b^2 = ab - b^2     (reason?)
+        subtract b^2 from both sides
 
     4) (a-b)(a+b) = b(a-b)      (reason?)
+        factored both sides
 
     5) a+b = b                  (reason?)
-
+        Divided by (a-b) on both sides
+Error!!!!
+        a-b = 0
+        Can't do
+    
     6) 2b = b                   (reason?)               
+        simplified (a=b)
 
     7) 2 = 1                    (reason?)
-
+        Divided both sides by b
 
 
 //////////////////////////////////////
@@ -139,8 +174,21 @@ Example (use proof by contradiction):
 
 If x^2 is even for an integer x, then x is even.
 
-(which template? )  
+(which template? ) 2
 
+Assume: n^2 is even for some integer n
+    n^2 = 2a where a is some integer
+Suppose, for the sake of contradiciton, n is odd
+    then n = 2m+1 where m is some integer
+        n^2 = (2m+1)^2
+            = 4m^2 + 4m + 1
+            = 2(2m^2 + 2m) + 1
+            odd
+            (n^2 = even) != odd
+                Contradiction
+    Then n^2 = 2i + 1 where i is the int (2m^2 + 2m), and n^2 is odd
+This contradicts with the eariler assumption that n^2 is even
+Thus: n is even
 
 
 //////////////////////////
@@ -166,6 +214,28 @@ is irrational.
 
 (which template?  )
 
+Suppose for the sake of contradiction sqrt(2) is rational
+    Thus sqrt(2) = p/q where p and q are integers and q != 0.
+        We pick p and q to share no common factors(to maintain rationality in the face of simplifying)
+        sqrt(2) = p/q
+        2 = p/q(p/q)
+        2 = p^2 / q^2
+        2q^2 = p^2
+        (even int) 2q^2
+    thus p^2 = 2a where a is the integer q^2, and so p^2 is even.
+From our earlier example p is also even. 
+    Since p is even, then p = 2b where b is an integer
+Substitute: 
+    2q^2 = (2b)^2
+    2q^2 = 4b^2
+    q^2 = 2b^2
+    q^2 = 2(b^2) is even
+    thus, q^2 = 2k where k is the integer b^2.
+thus: q^2 is even
+from our earlier example q must also be even.
+Contradiction: since both p and q are even then they both have the common factor 2. 
+    This contradicts with our earlier assumption that they don't share any common factors.
+Thus: sqrt(2) is irrational
 
 /////////////////////////////////
 ∀ ∃     ∈ ∉     ∅ ⋂ ⋃ ⊂ ⊆   ⋀ ⋁ ¬ →     ℕ ℤ     ≠ ≤ ≥
@@ -174,17 +244,21 @@ is irrational.
 Proofs with sets.
 
 Prove that A ⊆ B?
+    A is a subset of B (can be equal to)
     --> how would we express this in predicate logic?
+∀ x ∈ A → x ∈ B
 
 
     --> proof template? 
-
+Pick a random indiv that is assumed to be in A (write what that means)
+...
+Show the element is also in B
 
 
 
 
 Prove that A = B?
-
+Show that A ⊆ B and B ⊆ A
 
 ///////////////////////////////
 
@@ -192,8 +266,8 @@ Example.
 
 Prove that {x : x = 4k + 2, k ∈ ℤ} ⊆ {x : x = 2a, a ∈ ℤ}
 
-A = {x : x = 4k + 2, k ∈ ℤ}
-B = {x : x = 2a, a ∈ ℤ}
+A = {x : x = 4k + 2, k ∈ ℤ} (All elements 2 bigger than multiples of 4)
+B = {x : x = 2a, a ∈ ℤ} (multiples of 2)
 
 A: what elements?  
 
@@ -203,25 +277,58 @@ B: what elements?
 
 Proof that A ⊆ B.
 
+Let m ∈ A
+    thus m = 4k + 2 for some integer k
+    m = 4k + 2
+    m = 2(2k+1)
+So, m = 2a where a is the integer is 2k + 1, and so m ∈ B
 
+Goal: m ∈ B
 
 
 
 
 ///////////////////////////////
 
-⋂: means?
-
+⋂: means? A ⋂ B = {x : x ∈ A & x ∈ B}
 
 
 Prove that {x : x = 2k, k ∈ ℤ} ⋂ {x : x = 3m, m ∈ ℤ} = {x : x = 6a, a ∈ ℤ}
 
-Let A = {x : x = 2k, k ∈ ℤ} 
-Let B = {x : x = 3m, m ∈ ℤ} 
-Let C = {x : x = 6a, a ∈ ℤ} 
+Let A = {x : x = 2k, k ∈ ℤ} (all multiples of 2)
+Let B = {x : x = 3m, m ∈ ℤ} (all multiples of 3)
+Let C = {x : x = 6a, a ∈ ℤ} (all multiples of 6)
+
+A ⋂ B = {x : x ∈ A & x ∈ B}
+
+First, prove that A ⋂ B is a subset C
+
+Let n ∈ A ⋂ B. Then n ∈ A & x ∈ B
+Since n ∈ A, then n = 2k for some integer k
+Since n ∈ B, then n = 3m for some integer m
+    n = 4n - 3n
+    n = 4(3m) - 3(2k)
+    n = 12m - 6k
+    n = 6(2m -k)
+Thus: n = 6a where a is the integer 2m-k, and so n in set C
+
+goal: n = 6a to show that n is in C
+
+Let n ∈ C. Thus n = 6a for some integer a
+    n = 6a
+    n = 2(3a)
+So n = 2i where i is the integer 3a. Which means n ∈ A
+    n = 6a
+    n = 3(2a)
+So n = 3k where k is the integer 2a, which means n ∈ B
+Since n is in both A and B then C is a subset of A ⋂ B
 
 
 
+
+
+
+Next prove: C is a subsetA ⋂ B 
 
 
 //////////////////////////////
