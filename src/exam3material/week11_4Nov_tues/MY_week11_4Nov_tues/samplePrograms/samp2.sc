@@ -11,6 +11,6 @@ val num: Z = Z.prompt("Enter a number: ")
 
 if (num > 0) {
   println(num, " is positive")
-} else {
+} else { //<- requirement
   println(num, " is negative (or zero)")
 }

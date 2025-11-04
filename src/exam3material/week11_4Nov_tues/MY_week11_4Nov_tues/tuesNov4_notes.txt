@@ -41,17 +41,15 @@ Apply proof techniques and similar reasoning to prove correctness
 of basic programs.
 
 (Why does this matter?)
-
-
-
+Avionics
+Medical software
+spacecraft
+cyberSecurity
+Shutdown/failure affects on system
 
 AWS formal methods
 
-
-
 Drone flight 
-
-
 
 ////////////////////////////
 
@@ -112,10 +110,10 @@ Then: prove program correctness in "auto" mode
 ////////////////////////
 
 Preconditions: ?
-
+    Assumed info that's required about inputs or parameters to prove correctness (ie: x is positive)
 
 Postconditions: ?
-
+    Describe the results
 
 /////
 
@@ -196,8 +194,14 @@ Premise
 Example:
 
 var input: Z = Z.prompt("Enter a positive number: ")
-assume(num > 0)
+assume(input > 0)
 var y: Z = 12
+
+Deduce(
+    1 (y == 12) by Premise,
+    2 (input > 0) by Premise,
+
+)
 
 //proof block? what would go there?
 
@@ -212,8 +216,8 @@ Algebra* (or Algebra T)
 
     Deduce(
         1 ( x == 2 ) by Premise,
-        2 ( x >= 2 ) by ???,
-        3 ( 4 > 0 ) by ???
+        2 ( x >= 2 ) by Algebra*,
+        3 ( 4 > 0 ) by 
     )
 
 

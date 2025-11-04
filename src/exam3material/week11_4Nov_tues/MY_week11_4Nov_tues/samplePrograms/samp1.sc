@@ -7,6 +7,7 @@ import org.sireum._
 
 //what does "var" mean?
 var x: Z = Z.prompt("Enter a number: ")
+//var(varible) of type Z(integer)
 
 x = x + 1
 
