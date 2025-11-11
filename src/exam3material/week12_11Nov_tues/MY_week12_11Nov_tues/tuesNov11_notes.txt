@@ -92,23 +92,23 @@ Example: tickets.sc
 Four steps:
 
 1) What should be done before calling the function?
-
+Prove preconditions (using parameter variables)
 
 
 
 2) What can the function itself do with the preconditions?
-
+list them as premises
 
 
 
 3) What must the function do with the postconditions?
-
+Show that all are true based on value being returned
 
 
 
 4) What can the calling code do with the postcondition after
     the function returns? 
-
+List as premises using parameters and variable using to store
 
 
 

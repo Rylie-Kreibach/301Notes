@@ -20,13 +20,27 @@ var max: Z = 0
 if (a >= b) {
   if (a >= c) {
     max = a
-
+    Deduce(
+      1 (a >= b) by Premise,
+      2 (a >= c) by Premise,
+      3 (max == a) by Premise,
+    )
     //what do we need to show here?
   } else {
     max = c
-
+    Deduce(
+      1 (a >= b) by Premise,
+      2 (!(a >= c)) by Premise,
+      3 (max == c) by Premise,
+    )
     //what do we need to show here?
   }
+  Deduce(
+    1 (max == a | max == b | max == c) by Premise,
+    2 (max >= a) by Premise,
+    3 (max >= b) by Premise,
+    4 (max >= c) by Premise,
+  )
   //what do we put here?
 } else {
   if (b >= c) {
@@ -39,9 +53,21 @@ if (a >= b) {
     //what do we need to show here?
   }
 
+  Deduce(
+    1 (max == a | max == b | max == c) by Premise,
+    2 (max >= a) by Premise,
+    3 (max >= b) by Premise,
+    4 (max >= c) by Premise,
+  )
   //what goes here?
 }
 
+Deduce(
+  1 (max == a | max == b | max == c) by Premise,
+  2 (max >= a) by Premise,
+  3 (max >= b) by Premise,
+  4 (max >= c) by Premise,
+)
 //what goes here?
 
 println("Max between ", a, ", ", b, " and ", c, " is ", max)
@@ -50,3 +76,8 @@ println("Max between ", a, ", ", b, " and ", c, " is ", max)
 //what assert(s) do we want?
 
 //where do we need to prove the asserts?
+
+assert(max == a | max == b | max == c)
+assert(max >= a)
+assert(max >= b)
+assert(max >= c)
