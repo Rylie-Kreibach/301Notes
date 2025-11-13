@@ -23,16 +23,19 @@ if (base case condition) {
 } else {
 
     //what to do here?
-
+//PROVE THE PRECONDITIONS for the function
     recursive call
 
     //what can we do here?
-
+//use postconditions as premises
     answer = (something)
 }
 
 //if we want some postcondition after an if/else, what do we do?
+//answer == something (in both if and else)
 
+
+//Res[Z] == 
 return answer
 
 
@@ -61,7 +64,11 @@ while (condition) {
 <-- what do we know here?
 
 <-- why is this more challenging than if-statements?
+//repeated number of times
 
+
+//Loop invariabnts
+    //true before the loop and after each iteration
 
 //////////////////////////////
 
@@ -80,14 +87,18 @@ Steps to proving correctness of a loop:
 1) Prove the invariant is true before the loop begins
 
     (what is this like in mathematical induction?)
-
+Base Case
+Inductive hypothesis assumed true, prove inductive step
+Summary
 
 
 2) Assume the invariant is true at the beginning of an iteration.
     Prove the invariant still holds at the end of the iteration.
 
     (what is this like in mathematical induction?)
-
+Prove pre condition
+assume true at the start of an iteration, prove true at end
+true after loops
 
 
 /////////////////////////
