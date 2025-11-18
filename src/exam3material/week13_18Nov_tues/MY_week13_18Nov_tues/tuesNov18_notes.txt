@@ -88,3 +88,49 @@ When doing programming logic:
 
 
 Now, we will work through practice exam 3
+
+
+
+Question 1: Predicate logic
+
+1 (E((x:T) => (D(x) & ! B(x)))) by Premise,
+2 (A((x:T) => (!B(x) -> S(x)))) by Premise,
+
+3 Let ((a: T) => SubProof(
+    4 Assume (D(a) & ! B(a)),
+    5 (!B(a) -> S(a)) by AllE[T](2),
+    6 (!B(a)) by AndE2(4),
+    7 (S(a)) by ImplyE(5,6),
+    8 (E((x:T) => S(x))) by ExistsI[T](7),
+
+
+    //Goal S(x)
+)),
+9 (E((x:T) => S(x))) by ExistsE[T](1, 3)
+// E((x:T) => S(x))
+
+
+
+Question 7?
+
+var a == 4
+var b == 2
+
+Deduce(
+    1 (a == 4) by Premise,
+    2 (b == 2) by Premise,
+    3 ((a-1) + b > 0) by Algebra*(1,2) //use parameters!!!!!!!!!
+
+)
+
+var back == function(a-1, b)
+
+Deduce(
+    //Postcondition: res[z] == 2*x - y
+    1 ( back == 2*(a-1) - b) by Premise, //Post-condition (not written in here)
+    2 (a == 4) by Premise,
+    3 (b == 2) by Premise,
+    4 (back == 4) by Algebra*(1,2,3)
+)
+
+assert (back == 4)
