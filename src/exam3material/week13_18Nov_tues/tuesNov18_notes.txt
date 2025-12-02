@@ -3,7 +3,8 @@ HW 10 due tonight
 
 Exam 3 is Thursday, November 20
 
-Jacob will have an Exam 3 review session tonight from 4:00-5:30 pm in DUE 1118
+Jacob will have an Exam 3 review session tonight from 
+    4:00-5:30 pm in DUE 1118
 
 //////////////////////////////
 
@@ -53,7 +54,7 @@ Topics:
 - Predicate logic proofs emphasizing the existential quantifier
 - Recursive definitions (functions and sets)
 - Proof techniques, including:
-    - Mathematical induction
+    - Mathematical induction**
     - Direct (conditional) proofs
     - Contrapositive proofs 
     - Proof by contradiction
@@ -73,7 +74,8 @@ Topics:
 The exam will NOT involve programs that use modulus or division.
 
 
-Problems will be similar in format to Homework 7-10.
+Multiple choice problems will be similar to quizzes
+Open-ended problems will be similar in format to Homework 7-10.
 
 
 When doing programming logic:
