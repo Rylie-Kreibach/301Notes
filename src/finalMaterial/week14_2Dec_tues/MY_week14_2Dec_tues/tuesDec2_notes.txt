@@ -97,8 +97,11 @@ Suppose "seq" is our sequence
 ∀ (0 until seq.size)(k => seq(k) == 0 )
     
     --> what does this say?
+all positions are zeros
 
 
+∀ (0 until seq.size)(k => In(seq)(k) > 0 -> seq(k) == 0 )
+all positive elements are set to 0
 
 ∀ (lower to upper)(k => some statement about seq(k) )
     (DOES include upper)
@@ -110,19 +113,29 @@ Similarly, can use ∃
 ∃ (0 until seq.size)(k => seq(k) == 0 )
 
     --> what does this say?
+    one of the positions has been set to 0
 
+until exclusive
+to inclusive
 ///////////////////////////
 
 Writing function contract for function with a sequence:
 
 - Requires:
     - Sequence size?
+        //make sure you don't reference something that isn't promised
     - Index parameters?
+        // x > 0 & x > arr.Size 
+            //For all parameters
 - Modifies: when needed?
+    //does the sequence change
 - Ensures:
     - What to describe about sequence?
+        
     - What about return values?
-
+        //Describe sequence change. Every value in sequence
+         //arr[0] == 0
+         //all other positions are the same
 
 
 
@@ -130,7 +143,12 @@ Writing function contract for function with a sequence:
 Use "In(seq)" refers to the state of a sequence at the
     beginning of the function call
 
-
+Contract(
+    Requires
+    (
+        array.Size > 0 
+    )
+)
 
 ///////////////////////////
 
