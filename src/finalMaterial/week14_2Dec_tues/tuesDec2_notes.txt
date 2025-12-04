@@ -15,6 +15,8 @@ F (below 60): 29 students (includes 8 skipped exams)
 Final exam: Tuesday, December 16 2:00-3:50 pm
 
 Canvas category: "midterm equivalent from final"
+    final: 100/150 (67%)
+    midterm equivalent: 67/100
 
 
 ////////////////////////////
@@ -96,8 +98,12 @@ Suppose "seq" is our sequence
 
 ∀ (0 until seq.size)(k => seq(k) == 0 )
     
-    --> what does this say?
+    --> what does this say? all element in seq are 0
 
+∀ (0 until seq.size)(k => In(seq)(k) > 0 ->  seq(k) == 0 )
+
+    --> what does this say? all elements that were initially positive
+            have been set to 0
 
 
 ∀ (lower to upper)(k => some statement about seq(k) )
@@ -109,27 +115,29 @@ Similarly, can use ∃
 
 ∃ (0 until seq.size)(k => seq(k) == 0 )
 
-    --> what does this say?
+    --> what does this say? one of the positions in seq has been set to 0
 
 ///////////////////////////
 
 Writing function contract for function with a sequence:
 
 - Requires:
-    - Sequence size?
-    - Index parameters?
-- Modifies: when needed?
+    - Sequence size? have requirements to make sure function code won't 
+        cause index out of bounds problem
+    - Index parameters? that they be valid positions in the sequence
+- Modifies: when needed? if the function changes a sequence parameter
 - Ensures:
     - What to describe about sequence?
+        the value of EVERY position in the sequence after calling the function
     - What about return values?
-
+        Res[Z]
 
 
 
 
 Use "In(seq)" refers to the state of a sequence at the
     beginning of the function call
-
+    "seq" means value at the end of the function call
 
 
 ///////////////////////////
@@ -151,6 +159,10 @@ Example: function that sets some position in a sequence to 0
 
 Example: swap function
 (swap.sc)
+
+///////////////////////////
+
+<-- stopped here, will continue on Thursday
 
 ///////////////////////////
 
