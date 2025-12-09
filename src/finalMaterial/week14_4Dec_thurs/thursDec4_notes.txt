@@ -39,6 +39,7 @@ Functions with sequences and loops.
 Example: function that sets every position in a sequence to 10
 (seqAll10.sc)
 
+(skipped this one -- recommend you try on your own)
 
 //////////////////////////
 
@@ -53,7 +54,7 @@ Example: seqMin.sc
 
 ////////////////////////////
 
-new type: B (bool)
+new type: B (bool) true, false, T, F
 
 Example: containsElem.sc
 
