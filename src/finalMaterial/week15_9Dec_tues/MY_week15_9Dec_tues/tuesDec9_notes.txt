@@ -88,27 +88,43 @@ Functions:
 
 
     Fan on, speed 3, rotate on. Can we call setSpeed(2)?
+        No, still rotating.
 
     Fan off, speed 0, rotate off. Can we call setSpeed(1)?
+        Yes
+        Fan == on
 
     Fan on, speed 2, rotate off. Can we call setSpeed(0)?
+        No, speed change of 1
 
     Fan on, speed 3, rotate on. Can we call setSpeed(4)?
+        Yes
 
     Fan on, speed 3, rotate on. Can we call makeRotate()?
+        No, already rotating
 
     Fan on, speed 5, rotate off. Can we call setSpeed(5)?
+        No, same speed
 
     Fan on, speed 5, rotate off. Can we call setSpeed(6)?
+        No, out of range
 
     Fan on, speed 1, rotate off. Can we call setSpeed(0)?
+        Yes
+        fan == off
 
 
 
 setSpeed(speed: Z) preconditions?
-
+    _speed != speed
+    0 <= speed <= 5
+    _speed == speed -1 || _speed == speed + 1
+    if rotate == on __>: speed >= 3
 
     postconditions?
+        _speed == speed
+        //rotate: handled by the invariant booleans
+
 
 ///////////////////////////
 
@@ -190,8 +206,15 @@ def DoOpposite(Function):
 
 
 Then consider DoOpposite(DoOpposite).
+    Case 1: DoOp(DoOp) loops infinitely
+        returns true, then it halts(due to contradiction). This is a contradiction
+            
+    Case 2: DoOp(DoOp) halts
+        return false, then it loop infinitiely(due to contradiction). This is a contradiciton
 
-
+Both end in a contradiction:
+    So we return the contradiction which (!can write) to be cannot.
+Impossible
 
 ///////////////////////////
 
@@ -200,35 +223,42 @@ Review: global invariants.
 If a file has global invariants.
 
 --> when do they need to hold?
-
+initially
+before and after each function call
 
 
 --> how to write function contracts for function that change 
     global variables?
 
 requires?
-
+    make sure nothing violates the invariants
 
 modifies?
-
+    modifies
 
 ensures?
-
+    how the global invariants have changed
 
 //////////////////////////
 
 (in-class quiz)
 
 ///////////////////////////
+Why is proofs important
+    Language libraries
+    used by millions
+    must be perfect
+
 
 Binary search bug.
 
 
     int mid = (low+high)/2;
 
+    int mid = low + (high-low) /2
 
 --> what's the problem? how to fix?
-
+overflow
     
 
 

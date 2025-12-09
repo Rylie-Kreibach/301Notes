@@ -13,7 +13,9 @@ def mult(x: Z, y: Z): Z = {
 
     //measure of work? (how many more iterations left?)
     //initially?
+        //y
     //after 1 iteration?
+        //y-1 or y-count
 
     //in general?
 
@@ -24,15 +26,20 @@ def mult(x: Z, y: Z): Z = {
             sum == x*count
         )
 
+        //measure: y-count
         sum = sum + x
         count = count + 1
+        //measure: y-count
+            //still works bc count++
 
 
         //measure should decrease with each iteration
             //does it?
+                //Yes
 
         //when I have no work left, then my loop should be done
             //is it?
+                //y == count: false, so you leave the loop
     }
 
     return sum
@@ -43,7 +50,16 @@ def multRec(x: Z, y: Z): Z = {
         Requires(y >= 0),
         Ensures(Res[Z] == x*y)
     )
-
+    //termination measure: 
+        //for all non-neg y
+        //Base case: 0
+            //MultRec(x, 0): terminates
+                //Doesn't infinitely recurse
+        //Inductive step: 
+            //Assume inductive hypothesis: that MultRec(x, k) for some non-neg integer k
+            //Prove: MultRec(x, k+1)
+                //is at least 1, so enter else and make recursive call MultRec(x, k+1-1) which terminates
+                    //Thus, we know MultRec(x, k+1) will also terminate
     var answer: Z = 0
 
     if (y == 0) {
@@ -63,7 +79,7 @@ def collatz(n: Z): Z = {
     )
 
     //what if n is 52?
-    //cur = ?
+    //cur = 52, 26, 13, 40, 20, 10, 5, 16, 8, 4, 2, 1
 
     var cur: Z = n
     while (cur > 1) {
