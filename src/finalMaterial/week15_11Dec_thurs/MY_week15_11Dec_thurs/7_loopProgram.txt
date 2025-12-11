@@ -10,18 +10,30 @@ def diff(big: Z, small: Z): Z = {
     )
 
     //PREMISES:
-    big >= small
+    Deduce(
+        1 big >= small,
+    )
 
 
     var count: Z = 0
     var cur: Z = big
 
     //PREMISES:
-
+    Deduce(
+        1 count == 0,
+        2 cur == big,
+        3 big >= small
+    )
 
 
     //SHOW:
-
+    Deduce(
+        1 count == 0,
+        2 cur == big,
+        3 big >= small,
+        4 count == big - cur,
+        5 count == 0 by Algebra*(4,2,1)
+    )
 
 
     while (cur != small) {
@@ -31,23 +43,29 @@ def diff(big: Z, small: Z): Z = {
         )
 
         //PREMISES:
-
+        Deduce(
+            1 count == big-cur by Premise,
+            2 cur != small by Premise,
+            3 big >= small by Premise
+        )
 
 
         cur = cur - 1
         count = count + 1
 
         //SHOW:
-
+        count == big - cur
 
     }
 
     //PREMISES:
-
+    !(cur != small)
+    count == big - cur
+    big >= small
 
 
     //SHOW:
-
+    ensures
 
 
     return count

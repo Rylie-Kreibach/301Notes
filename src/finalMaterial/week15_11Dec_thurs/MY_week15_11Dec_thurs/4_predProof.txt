@@ -11,7 +11,22 @@ Proof(
   1 ( ∀ ((x: T) => (P(x) ∨ Q(x)) ) ) by Premise,
   2 ( ¬(∃ ((x: T) => Q(x) )) ) by Premise,
 
-  //COMPLETE THE PROOF
+  3 (Let(a:T) => SubProof(
+    4 P(a) ∨ Q(a) by AllE[T](1),
+    5 SubProof(
+      6 Assume (P(a))
+    ),
+    7 SubProof(
+      8 Assume(Q(a)),
+      9 ∃ ((x: T) => Q(x) by ExistsI[T](8),
+      10 (F) by NegE(9, 2),
+      11 (P(a)) by BottomE(10)
+      //goal (p(a))
+    )
+    12 (P(a)) by OrE(4, 5, 7)
 
+
+  )),
+  13 ∀ ((x: T) => P(x)  ) by AllI[T](3)
 
 )

@@ -12,10 +12,10 @@ Office hour times during finals week.
 What to do with preconditions and postconditions in practice?
 
 precondition violated?
-
+Throw an exeception (Crash)
 
 postcondition check?
-
+assert()
 
 
 --> why might this would be preferable to only using test cases?
