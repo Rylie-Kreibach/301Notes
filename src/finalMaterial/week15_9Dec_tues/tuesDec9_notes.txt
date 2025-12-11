@@ -19,7 +19,7 @@ Final exam:
 //////////////////////////////
 
 looking for 1-2 CIS 301 UTAs and several CIS 200 UTAs for the spring
-    (for CIS 200, specifically need help with the Mon/Wed 2:30-4:20 pm lab)
+(for CIS 200, specifically need help with the Mon/Wed 2:30-4:20 pm lab)
 
 email me (juliet@ksu.edu) if interested
 
@@ -29,14 +29,28 @@ Problem 3 on HW 11: reverse a sequence
 
 
 What does it mean to be reversed?
-
-
-
+    ALL elements in the sequence
+        seq(k) == In(seq)(seq.size-k-1)
 
 After i iterations of the loop:
+    modifies (seq, i)
+    size doesn't change
+    bound the loop counter
+
     what has changed?
+        first i elements have been swapped with the last i elements
+            from 0 until i have been swapped
+                seq(k) has corresponding value from end
+                    In(seq)(seq.size-k-1)
+
+            from 0 until i
+                In(seq)(k) has corresponding value from end
+                    seq(seq.size-k-1)
+
+
 
     what is the same? 
+        from i until size-i
 
 
 
@@ -88,27 +102,41 @@ Functions:
 
 
     Fan on, speed 3, rotate on. Can we call setSpeed(2)?
+        NO. The fan is rotating and we can't rotate at a lower speed.
 
     Fan off, speed 0, rotate off. Can we call setSpeed(1)?
+        Yes, and the fan should be marked on.
 
     Fan on, speed 2, rotate off. Can we call setSpeed(0)?
+        NO. Can only change speed by 1 at a time.
 
     Fan on, speed 3, rotate on. Can we call setSpeed(4)?
+        Yes.
 
     Fan on, speed 3, rotate on. Can we call makeRotate()?
+        NO. The fan is already rotating.
+
 
     Fan on, speed 5, rotate off. Can we call setSpeed(5)?
+        NO. We need to change the speed when calling setSpeed.
+
 
     Fan on, speed 5, rotate off. Can we call setSpeed(6)?
+        NO. There is no speed 6.
 
     Fan on, speed 1, rotate off. Can we call setSpeed(0)?
+        Yes, and the fan is now marked off.
 
 
 
 setSpeed(speed: Z) preconditions?
+    speed needs to be in 0-5 range
+    speed needs to be one more or one less than curSpeed
+    if rotate is on, speed needs to be 3 or greater
 
 
     postconditions?
+        curSpeed changes to be the parameters
 
 ///////////////////////////
 
@@ -171,7 +199,7 @@ Decidability - whether a problem can be decided one way or another
 
 Halting problem - given a computer program and a set of inputs
     can you write another program to determine if the original
-    program will halt for the inputs?
+    program will halt on those inputs?
 
 
 Assume, for the sake of contradiction, that we CAN write a program
@@ -186,12 +214,22 @@ Then we can write:
 
 def DoOpposite(Function):
     if (Halt(Function, Function)): loop forever
-    else return (halt)
+    else return (i.e., halt)
 
 
 Then consider DoOpposite(DoOpposite).
+    Case 1: DoOpposite(DoOpposite) loops forever. Then
+        Halt(DoOpposite, DoOpposite) returns true. Then
+        DoOpposite(DoOpposite) halted. This is a contradiction
+        with our assumption that it looped forever.
 
+    Case 2: DoOpposite(DoOpposite) halts. Then Halt(DoOpposite, DoOpposite)
+        must have returned false. Then DoOpposite(DoOpposite) must have
+        NOT halted. This is another contradiction with our earlier
+        assuption that DoOpposite(DoOpposite) halted.
 
+Both cases ended in a contradiction, so our original assumption
+that we could write a Halt function is false.
 
 ///////////////////////////
 
@@ -200,6 +238,9 @@ Review: global invariants.
 If a file has global invariants.
 
 --> when do they need to hold?
+    Initially
+    Before each function call
+    At the end of each function call
 
 
 
@@ -207,12 +248,15 @@ If a file has global invariants.
     global variables?
 
 requires?
+    Make sure to only allow parameters that wouldn't violate
+    global invariants
 
 
-modifies?
+modifies? say it's modifying those global variables
 
 
 ensures?
+    how the global variables have changed as a result of the function cal
 
 
 //////////////////////////
@@ -228,6 +272,7 @@ Binary search bug.
 
 
 --> what's the problem? how to fix?
+    int mid = low + (high-low)/2
 
     
 
@@ -255,6 +300,9 @@ Timsort bug (Java's Collections sort / Arrays.Sort / Python's sort)
 http://envisage-project.eu/proving-android-java-and-python-sorting-algorithm-is-broken-and-how-to-fix-it/
 
 
+///////////////////////////
+
+<-- stopped here, will continue on Thursday
 
 ///////////////////////////
 
@@ -314,7 +362,7 @@ Whose job is it to check preconditions?
     --> ...can we enforce in practice?
 
 
-    --> What to do if preconditions not met? Rreturn a dummy
+    --> What to do if preconditions not met? Return a dummy
         value?
 
 
