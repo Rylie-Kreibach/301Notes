@@ -3,8 +3,6 @@ Today:
 - review for final exam
 
 
-Office hour times during finals week.
-
 
 ////////////////////////////////////
 
@@ -12,9 +10,12 @@ Office hour times during finals week.
 What to do with preconditions and postconditions in practice?
 
 precondition violated?
+    function will throw an exception (and leave)
+    so that we only complete function if the precondition was met
 
 
 postcondition check?
+    assert postcondition
 
 
 
@@ -32,7 +33,8 @@ Global invariants in practice.
 
 --> where should we call it?
 
-
+at the beginning of a function
+at the end of a function
 
 
 ///////////////////////////////////////
@@ -41,8 +43,14 @@ See Java Account example
 
 //////////////////////////////////////
 
-Final exam: Thursday, December 16 2:00-3:50 in DUE 1109 (here)
+Final exam: Tuesday, December 16 2:00-3:50 in DUE 1109 (here)
 **Midterm equivalent from final exam
+
+
+
+Office hour times during finals week.
+
+
 
 Closed notes, closed computers
 
@@ -67,7 +75,7 @@ Cumulative. Similar format as previous exams.
 
 //////////////////////////////////
 
-Do sequence (#9), globals (#10), loop program (#7) first
+Do **sequence (#9), **globals (#10), **loop/function program (#7) first
 
 
 <-- then in-class quiz

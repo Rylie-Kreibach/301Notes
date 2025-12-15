@@ -22,11 +22,12 @@ public class Account {
         assert isElite() == (getBalance() >= 1000000);
     }
 
-    public AccountJava() {
+    public Account() {
         _balance = 0;
         _elite = false;
 
         //what should we do here?
+        globalAsserts();
     }
     /*@
         requires amount >= 0;
@@ -35,6 +36,12 @@ public class Account {
     public void deposit(int amount) {
         //what do we do here?
 
+        //throw exception if precondition not met
+        if (amount < 0) {
+            throw new Exception("violated precondition");
+        }
+
+        globalAsserts();
 
         int oldBalance = _balance;
         _balance += amount;
@@ -44,6 +51,10 @@ public class Account {
         }
 
         //what do we do here?
+        //assert that I met the postcondition
+        assert _balance == oldBalance + amount;
+
+        globalAsserts();
     }
 
     /*@
